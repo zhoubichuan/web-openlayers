@@ -1,17 +1,17 @@
 import {shallowMount} from '@vue/test-utils'
-import Axios from '@/components/Axios.vue'
+import Test4 from '@/components/Test4.vue'
 import {expect} from 'chai'
 import moxios from 'moxios'
 
-describe('测试Axios.vue组件',()=>{
+describe('Test4.vue组件',()=>{
     beforeEach(()=>{
         moxios.install()
     })
     afterEach(()=>{
         moxios.uninstall()
     })
-    it('使用moxios模拟接口',(done)=>{
-        let wrapper =shallowMount(Axios)
+    it('测试axios',(done)=>{
+        let wrapper =shallowMount(Test4)
         moxios.stubRequest('/user',{
             status:200,
             response:{user:'jw'}
