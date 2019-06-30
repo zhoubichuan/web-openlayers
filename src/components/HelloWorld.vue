@@ -20,7 +20,7 @@ export default {
     msg: String
   },
   data() {
-    return { count: 10, name: "姜文", flag: false };
+    return { count: 10, name: "javascript", flag: false };
   },
   methods: {
     show() {
