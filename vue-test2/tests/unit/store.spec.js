@@ -1,10 +1,8 @@
 import {shallowMount,createLocalVue} from '@vue/test-utils'
 import Vuex from 'vuex'
 import Store from '@/components/Store.vue'
-
 let localVue=createLocalVue();
 localVue.use(Vuex)//防止用例之间的污染
-
 let state;
 let store;
 let actions;
@@ -27,7 +25,6 @@ describe('测试vuex 能否在页面中使用',()=>{
             store
         })
         expect(wrapper.text()).toContain('jw')
-
     })
     it('点击按钮时action能否正常触发',()=>{
         let wrapper=shallowMount(Store,{

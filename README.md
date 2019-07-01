@@ -1,3 +1,3 @@
 vue中两种测试模式：
-- mock + chai
+- mocha + chai
 - jest
