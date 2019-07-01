@@ -1,1 +1,3 @@
-vue 测试用例案例
+vue中两种测试模式：
+- mock + chai
+- jest
