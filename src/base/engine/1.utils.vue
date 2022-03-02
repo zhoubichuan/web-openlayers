@@ -1,20 +1,3 @@
----
-lang: zh-CN
-sidebarDepth: 2
-meta:
-  - name: description
-    content: 个人总结的vuepress学习技术文档-语法
-  - name: keywords
-    content: vuepress,最新技术文档,vuepress语法,markdown语法
----
-
-# 四.缩略图
-
-<engineenv/>
-
-:::details 代码
-
-```vue
 <template>
   <div class="map-example">
     <div ref="map" class="map"></div>
@@ -27,9 +10,9 @@ import Map from "ol/Map";
 import View from "ol/View";
 import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM";
-import { OverviewMap, defaults } from "ol/control";
+import { ScaleLine , defaults } from "ol/control";
 export default {
-  name: "eagleEye",
+  name: "scale",
   mounted() {
     new Map({
       view: new View({
@@ -41,14 +24,7 @@ export default {
           source: new OSM(),
         }),
       ],
-      controls: defaults(/* 地图默认控件 */).extend([new OverviewMap({
-        collapsed: false,//初始为展开显示方式
-        layers: [
-          new TileLayer({ // 创建一个使用Open Street Map地图源的瓦片图层
-            source: new OSM(),
-          }),
-        ],
-      })]),
+      controls: defaults(/* 地图默认控件 */).extend([new ScaleLine()]),
       target: this.$refs.map,
     });
   },
@@ -67,5 +43,4 @@ export default {
   }
 }
 </style>
-```
-:::
+

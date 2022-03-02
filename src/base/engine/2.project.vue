@@ -1,20 +1,3 @@
----
-lang: zh-CN
-sidebarDepth: 2
-meta:
-  - name: description
-    content: 个人总结的vuepress学习技术文档-语法
-  - name: keywords
-    content: vuepress,最新技术文档,vuepress语法,markdown语法
----
-
-# 三.比例尺
-
-<enginevuecli/>
-
-:::details 代码
-
-```vue
 <template>
   <div class="map-example">
     <div ref="map" class="map"></div>
@@ -35,21 +18,21 @@ export default {
   mounted() {
     new Map({
       view: new View({
-        center: [12579156, 3274244],
-        zoom: 12,
+        center: [12579156, 3274244], // 坐标
+        zoom: 12, // 放大倍数
       }),
       layers: [
-        new TileLayer({
+        new TileLayer({ // 创建一个使用Open Street Map地图源的瓦片图层
           source: new OSM(),
         }),
       ],
-      controls: defaults({
+      controls: defaults({/* 地图默认控件 */
         attributionOptions: {
-          collapsible: true,
+          collapsible: true, // 右下角详细信息默认收缩
         },
       }).extend([new MousePosition({
-        coordinateFormat: createStringXY(3),
-        projection: 'EPSG:4326',
+        coordinateFormat: createStringXY(3), // 保留 3 位小数
+        projection: 'EPSG:4326', // 输出 4326 投影的坐标，默认3857
         target: this.$refs.position,
       })]),
       target: this.$refs.map,
@@ -76,6 +59,4 @@ export default {
   }
 }
 </style>
-```
 
-:::

@@ -1,10 +1,10 @@
 {
-  "name": "web-browser",
+  "name": "web-openlayer",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "author": "zhoubichaun@icloud.com",
-  "hommepage": "https://github.com/zhoubichuan/web-browser/",
+  "hommepage": "https://github.com/zhoubichuan/web-openlayer/",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -24,5 +24,9 @@
     "@vuepress/plugin-pwa": "^1.8.2",
     "vuepress": "^1.8.2",
     "vuepress-plugin-boxx": "0.0.7"
+  },
+  "dependencies": {
+    "ol": "^6.13.0",
+    "vuepress-plugin-demo-container": "^0.2.0"
   }
 }
