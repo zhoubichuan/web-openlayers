@@ -1,8 +1,8 @@
-import utils from '../base/engine/1.utils.vue';
-import project from '../base/engine/2.project.vue';
-import vuecli from '../base/engine/3.vuecli.vue';
-import env from '../base/engine/4.env.vue';
-import ui from '../base/engine/5.ui.vue';
+import utils from '../base/engine/utils.vue';
+import project from '../base/engine/project.vue';
+import vuecli from '../base/engine/vuecli.vue';
+import env from '../base/engine/env.vue';
+import ui from '../base/engine/ui.vue';
 
 export default ({
     Vue
