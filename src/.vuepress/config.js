@@ -7,6 +7,9 @@ module.exports = {
   markdown: {
     lineNumbers: true // 代码块显示行号
   },
+  head: [
+    ['script', { src: 'https://cdn.bootcdn.net/ajax/libs/openlayers/4.6.5/ol.js' }]
+  ],
   plugins: {
     'demo-container': true,
     // 名称：@vuepress/plugin-pwa 网页内容有更新的时候有刷新按钮。可以把网页保存到桌面，当一个app一样
