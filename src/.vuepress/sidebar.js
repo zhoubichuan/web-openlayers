@@ -25,7 +25,7 @@ const sidebar = {
         '6.configurePrem',
         '7.internationalization',
         '8.errorCollection',
-        '9.optimize',
+        '9.event',
         '10.server',
         '11.pwa',
         '12.upload',
