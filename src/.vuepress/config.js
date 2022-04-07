@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'openlayer学习笔记',
+  title: 'openlayers学习笔记',
   description: '风浪没平息 我宣告奔跑的意义',
   base: '/web-openlayer/', // 部署站点的基础路径
   port: 3009,

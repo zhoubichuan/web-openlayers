@@ -1,4 +1,4 @@
-# openlayer 学习笔记
+# openlayers 学习笔记
 
 ![一.基础知识](./src/.vuepress/public/home.png)
 
@@ -11,12 +11,12 @@
   - [一.Vue 组件开发](https://zhoubichuan.github.io/web-browser/senior/component/1.index.html)
   - [二.Vue + TS](https://zhoubichuan.github.io/web-browser/senior/typescript/1.index.html)
   - [三.构建部署](https://zhoubichuan.github.io/web-browser/senior/deploy/1.index.html)
-- Vue 2.x 源码
+- openlayers 源码
   - [一.Vue/cli2.x](https://zhoubichuan.github.io/web-browser/source/vue-cli2.x/1.index.html)
   - [二.Vue 2.x](https://zhoubichuan.github.io/web-browser/source/vue2.x/1.index.html)
   - [三.Vue-Router3.x](https://zhoubichuan.github.io/web-browser/source/vue-router3.x/1.index.html)
   - [四.Vuex3.x](https://zhoubichuan.github.io/web-browser/source/vuex3.x/1.index.html)
-- Vue 3.x 源码
+- openlayers 资料
   - [一.Vue/cli3.x](https://zhoubichuan.github.io/web-browser/source/vue-cli3.x/1.index.html)
   - [二.Vue 3.x](https://zhoubichuan.github.io/web-browser/source/vue3.x/1.index.html)
   - [三.Vue-Router4.x](https://zhoubichuan.github.io/web-browser/source/vue-router4.x/1.index.html)

@@ -23,16 +23,16 @@ const nav = [{
     text: '高级知识',
     items: [
         {
-            text: '一.DOM Tree、CSSOM',
+            text: '一.高精度地图',
             link: '/senior/1.micro/1.index'
         },
 
         {
-            text: '二.渲染、绘制',
+            text: '二.后端相关',
             link: '/senior/2.typescript/1.index'
         },
         {
-            text: '三.会话',
+            text: '三.地图封装',
             link: '/senior/3.deploy/1.index'
         },
         {
@@ -58,7 +58,7 @@ const nav = [{
     ]
 },
 {
-    text: 'Vue 2.x源码',
+    text: 'openlayers源码',
     items: [
         {
             text: '一.Vue/cli2.x',
@@ -75,7 +75,7 @@ const nav = [{
     ]
 },
 {
-    text: 'Vue相关资料推荐',
+    text: 'openlayers资料',
     link: '/read',
 }
 ]
