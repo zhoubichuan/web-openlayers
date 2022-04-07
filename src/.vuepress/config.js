@@ -8,7 +8,7 @@ module.exports = {
     lineNumbers: true // 代码块显示行号
   },
   head: [
-    ['script', { src: 'https://cdn.bootcdn.net/ajax/libs/openlayers/4.6.5/ol.js' }]
+    ['script', { src: 'https://cdn.bootcdn.net/ajax/libs/openlayers/4.6.5/ol.js' }],
   ],
   plugins: {
     'demo-container': true,
