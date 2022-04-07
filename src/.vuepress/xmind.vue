@@ -1,5 +1,7 @@
 <template>
-  <div id="jsmind_container"></div>
+  <div class="xmind">
+    <div id="jsmind_container"></div>
+  </div>
 </template>
 
 <script>
@@ -117,5 +119,5 @@ export default {
 </script>
 
 <style>
-@import "./jsMind.css";
+@import "./jsMind.scss";
 </style>
