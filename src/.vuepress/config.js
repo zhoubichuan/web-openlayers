@@ -8,9 +8,22 @@ module.exports = {
     lineNumbers: true // 代码块显示行号
   },
   head: [
+    ['script', { src: 'https://unpkg.com/elm-pep@1.0.6/dist/elm-pep.js' }],
+    ['script', { src: 'https://cdn.polyfill.io/v3/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,TextDecoder' }],
+    ['script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/core-js/3.18.3/minified.js' }],
+    ['script', { src: 'https://unpkg.com/gifler@0.1.0/gifler.min.js' }],
     ['script', { src: 'https://cdn.bootcdn.net/ajax/libs/openlayers/4.6.5/ol.js' }],
   ],
   plugins: {
+    'vuepress-plugin-anchor-toc': {
+      showDepth: 1,
+      customClass: 'your-customClass',
+      ignore: [
+        '/',
+        '/api/'
+        // more...
+      ]
+    },
     'demo-container': true,
     // 名称：@vuepress/plugin-pwa 网页内容有更新的时候有刷新按钮。可以把网页保存到桌面，当一个app一样
     '@vuepress/pwa': {

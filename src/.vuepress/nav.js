@@ -39,22 +39,6 @@ const nav = [{
             text: '四.事件循环',
             link: '/senior/4.component/1.index'
         },
-        {
-            text: '五.垃圾回收',
-            link: '/senior/5/1.index'
-        },
-        {
-            text: '六.webkit深入',
-            link: '/senior/6/1.index'
-        },
-        {
-            text: '七.引擎',
-            link: '/senior/7/1.index'
-        },
-        {
-            text: '八.v8',
-            link: '/senior/8/1.index'
-        },
     ]
 },
 {

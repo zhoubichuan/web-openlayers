@@ -23,6 +23,7 @@
     "@vuepress/plugin-nprogress": "^1.8.2",
     "@vuepress/plugin-pwa": "^1.8.2",
     "vuepress": "^1.8.2",
+    "vuepress-plugin-anchor-toc": "^0.0.3",
     "vuepress-plugin-boxx": "0.0.7"
   },
   "dependencies": {
