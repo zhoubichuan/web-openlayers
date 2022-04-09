@@ -108,9 +108,6 @@ const sidebar = {
         '12.tree',
         '13.publish',
     ],
-    '/senior/vue3/': [
-        '1.index',
-    ],
     '/source/vue-cli2.x/': [
         '1.index'
     ],
