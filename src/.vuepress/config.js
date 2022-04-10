@@ -13,6 +13,7 @@ module.exports = {
     ['script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/core-js/3.18.3/minified.js' }],
     ['script', { src: 'https://unpkg.com/gifler@0.1.0/gifler.min.js' }],
     ['script', { src: 'https://cdn.bootcdn.net/ajax/libs/openlayers/4.6.5/ol.js' }],
+    ['script', { src: 'https://unpkg.com/d3@6.7.0/dist/d3.min.js' }],
   ],
   plugins: {
     'vuepress-plugin-anchor-toc': {
