@@ -23,13 +23,13 @@ const sidebar = {
         '4.projectMonitor',
         '5.test',
         '6.configurePrem',
-        '7.internationalization',
-        '8.errorCollection',
-        '9.event',
-        '10.server',
-        '11.pwa',
-        '12.upload',
-        '13.video'
+        // '7.internationalization',
+        // '8.errorCollection',
+        // '9.event',
+        // '10.server',
+        // '11.pwa',
+        // '12.upload',
+        // '13.video'
     ],
     '/base/vue2.x/': [
         '1.index',

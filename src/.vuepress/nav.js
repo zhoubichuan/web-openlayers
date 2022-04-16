@@ -22,42 +22,42 @@ const nav = [{
 {
     text: '高级知识',
     items: [
-        {
-            text: '一.高精度地图',
-            link: '/senior/1.micro/1.index'
-        },
+        // {
+        //     text: '一.高精度地图',
+        //     link: '/senior/1.micro/1.index'
+        // },
 
         {
-            text: '二.后端相关',
+            text: '二.案例',
             link: '/senior/2.typescript/1.index'
         },
+        // {
+        //     text: '三.地图封装',
+        //     link: '/senior/3.deploy/1.index'
+        // },
         {
-            text: '三.地图封装',
-            link: '/senior/3.deploy/1.index'
-        },
-        {
-            text: '四.事件循环',
+            text: '四.案例',
             link: '/senior/4.component/1.index'
         },
     ]
 },
-{
-    text: 'openlayers源码',
-    items: [
-        {
-            text: '一.Vue/cli2.x',
-            link: '/source/vue-cli2.x/1.index'
-        },
-        {
-            text: '二.Vue 2.x',
-            link: '/source/vue2.x/1.index'
-        },
-        {
-            text: '三.Vue-Router3.x',
-            link: '/source/vue-router3.x/1.index'
-        }
-    ]
-},
+// {
+//     text: 'openlayers源码',
+//     items: [
+//         {
+//             text: '一.Vue/cli2.x',
+//             link: '/source/vue-cli2.x/1.index'
+//         },
+//         {
+//             text: '二.Vue 2.x',
+//             link: '/source/vue2.x/1.index'
+//         },
+//         {
+//             text: '三.Vue-Router3.x',
+//             link: '/source/vue-router3.x/1.index'
+//         }
+//     ]
+// },
 {
     text: 'openlayers资料',
     link: '/read',
