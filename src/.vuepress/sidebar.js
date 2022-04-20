@@ -10,10 +10,10 @@ const sidebar = {
         '7.single',
         '8.page',
         '9.module',
-        '10.skill',
-        '11.mock',
-        '12.optimization',
-        '13.deploy'
+        // '10.skill',
+        // '11.mock',
+        // '12.optimization',
+        // '13.deploy'
     ],
     '/base/project/': [
         '1.index',
