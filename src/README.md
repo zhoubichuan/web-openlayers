@@ -16,15 +16,15 @@ meta:
     <div id="large-header" class="large-header"></div>
     <div class="features">
       <div class="feature">
-        <h2><a href="/web-browser/base/engine/1.index.html">基础知识</a></h2> 
+        <h2><a href="/web-openlayer/base/engine/1.index.html">基础知识</a></h2> 
         <p>掌握openlayers基础知识，能通过相关api实现一个简单的功能，综合相关场景实现一个多场景需求，通过对业务的分析提炼需求点</p>
       </div>
       <div class="feature">
-        <h2><a href="/web-browser/base/project/1.index.html">高级知识</a></h2> 
+        <h2><a href="/web-openlayer/base/project/1.index.html">高级知识</a></h2> 
         <p>掌握开发高精度地图需要的基本知识，对相关后端的了解，封装地图相关的代码</p>
       </div>
       <div class="feature">
-        <h2><a href="/web-browser/base/vue2.x/1.index.html">openlayers源码</a></h2> 
+        <h2><a href="/web-openlayer/base/vue2.x/1.index.html">openlayers源码</a></h2> 
         <p>掌握openlayers源码，能从源码方面解决地图方面的难点</p>
       </div>
       <div class="feature">
