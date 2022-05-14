@@ -1,10 +1,10 @@
 {
-  "name": "web-openlayer",
+  "name": "web-openlayers",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "author": "zhoubichaun@icloud.com",
-  "hommepage": "https://github.com/zhoubichuan/web-openlayer/",
+  "hommepage": "https://github.com/zhoubichuan/web-openlayers/",
   "private": true,
   "license": "MIT",
   "scripts": {

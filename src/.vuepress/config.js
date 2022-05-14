@@ -1,7 +1,7 @@
 module.exports = {
   title: 'openlayers学习笔记',
   description: '风浪没平息 我宣告奔跑的意义',
-  base: '/web-openlayer/', // 部署站点的基础路径
+  base: '/web-openlayers/', // 部署站点的基础路径
   port: 3009,
   dest: 'dist', // 指定 vuepress 的输出目录
   markdown: {
@@ -46,7 +46,7 @@ module.exports = {
       locale: 'zh', //语言
       // 其他的 Vssue 配置
       owner: 'zhoubichuan', //github账户名
-      repo: 'web-openlayer', //github一个项目的名称
+      repo: 'web-openlayers', //github一个项目的名称
       clientId: 'Iv1.2923ba5d4de48a3c', //注册的Client ID
       clientSecret: '110210', //注册的Client Secret
       autoCreateIssue: true // 自动创建评论，默认是false，最好开启，这样首次进入页面的时候就不用去点击创建评论的按钮了。
@@ -55,7 +55,7 @@ module.exports = {
   },
   // 主题配置
   themeConfig: {
-    repo: 'https://github.com/zhoubichuan/web-openlayer', // 源码地址
+    repo: 'https://github.com/zhoubichuan/web-openlayers', // 源码地址
     repoLabel: '查看源码', // (查看源码的)组件名称
     docsDir: 'src', // 假如文档不是放在仓库的根目录下
     docsBranch: 'master', // 假如文档放在一个特定的分支下

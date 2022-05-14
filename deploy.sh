@@ -13,7 +13,7 @@ git init
 git checkout --orphan gh-pages
 git add .
 git commit -m 'gh-pages'
-git remote add gitee https://gitee.com/zhoubichuan/web-openlayer.git
+git remote add gitee https://gitee.com/zhoubichuan/web-openlayers.git
 git push -f gitee gh-pages
 
 # 4.返回初始目录
@@ -36,7 +36,7 @@ git init
 git checkout --orphan gh-pages
 git add .
 git commit -m 'gh-pages'
-git remote add github https://github.com/zhoubichuan/web-openlayer.git
+git remote add github https://github.com/zhoubichuan/web-openlayers.git
 git push -f github gh-pages
 
 # 5.返回初始目录
