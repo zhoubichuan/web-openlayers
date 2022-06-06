@@ -8,12 +8,12 @@ module.exports = {
     lineNumbers: true // 代码块显示行号
   },
   head: [
-    ['script', { src: './js/elm-pep.js' }],
-    ['script', { src: './js/minified.js' }],
-    ['script', { src: './js/gifler.min.js' }],
-    ['script', { src: './js/ol.js' }],
-    ['script', { src: './js/d3.min.js' }],
-    ['script', { src: './js/jquery-migrate-1.2.1.min.js' }],
+    ['script', { src: '/js/elm-pep.js' }],
+    ['script', { src: '/js/minified.js' }],
+    ['script', { src: '/js/gifler.min.js' }],
+    ['script', { src: '/js/ol.js' }],
+    ['script', { src: '/js/d3.min.js' }],
+    ['script', { src: '/js/jquery-migrate-1.2.1.min.js' }],
   ],
   plugins: {
     'vuepress-plugin-anchor-toc': {
