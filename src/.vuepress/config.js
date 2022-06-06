@@ -8,13 +8,12 @@ module.exports = {
     lineNumbers: true // 代码块显示行号
   },
   head: [
-    ['script', { src: 'https://unpkg.com/elm-pep@1.0.6/dist/elm-pep.js' }],
-    ['script', { src: 'https://cdn.polyfill.io/v3/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,TextDecoder' }],
-    ['script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/core-js/3.18.3/minified.js' }],
-    ['script', { src: 'https://unpkg.com/gifler@0.1.0/gifler.min.js' }],
-    ['script', { src: 'https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/build/ol.js' }],
-    ['script', { src: 'https://unpkg.com/d3@6.7.0/dist/d3.min.js' }],
-    ['script', { src: 'http://code.jquery.com/jquery-migrate-1.2.1.min.js' }],
+    ['script', { src: './js/elm-pep.js' }],
+    ['script', { src: './js/minified.js' }],
+    ['script', { src: './js/gifler.min.js' }],
+    ['script', { src: './js/ol.js' }],
+    ['script', { src: './js/d3.min.js' }],
+    ['script', { src: './js/jquery-migrate-1.2.1.min.js' }],
   ],
   plugins: {
     'vuepress-plugin-anchor-toc': {
