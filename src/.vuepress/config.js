@@ -13,7 +13,7 @@ module.exports = {
     ['script', { src: '/js/gifler.min.js' }],
     ['script', { src: '/js/ol.js' }],
     ['script', { src: '/js/d3.min.js' }],
-    ['script', { src: '/js/jquery-migrate-1.2.1.min.js' }],
+    ['script', { src: '/js/jquery.js' }],
   ],
   plugins: {
     'vuepress-plugin-anchor-toc': {
