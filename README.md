@@ -10,4 +10,3 @@
 - 高级知识
   - [一.Vue 组件开发](https://zhoubichuan.github.io/web-openlayers/senior/component/1.index.html)
   - [二.Vue + TS](https://zhoubichuan.github.io/web-openlayers/senior/typescript/1.index.html)
-  - [三.构建部署](https://zhoubichuan.github.io/web-openlayers/senior/deploy/1.index.html)
