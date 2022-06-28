@@ -3,7 +3,7 @@ module.exports = {
   description: '风浪没平息 我宣告奔跑的意义',
   base: '/web-openlayers/', // 部署站点的基础路径
   port: 3009,
-  dest: 'dist', // 指定 vuepress 的输出目录
+  dest: 'web-openlayers', // 指定 vuepress 的输出目录
   markdown: {
     lineNumbers: true // 代码块显示行号
   },

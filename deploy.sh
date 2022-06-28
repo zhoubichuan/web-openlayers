@@ -7,7 +7,7 @@ git push gitee master
 # 2.打包
 npm run src:build
 
-cd dist
+cd web-openlayers
 # 3.发布到gh-pages分支
 git init
 git checkout --orphan gh-pages
