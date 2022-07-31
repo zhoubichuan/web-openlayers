@@ -14,6 +14,7 @@ module.exports = {
     ['script', { src: '/js/ol.js' }],
     ['script', { src: '/js/d3.min.js' }],
     ['script', { src: '/js/jquery.js' }],
+    ['script', { src: '/js/mapbox-streets-v6-style.js' }],
   ],
   plugins: {
     'vuepress-plugin-anchor-toc': {
