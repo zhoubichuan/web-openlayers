@@ -15,6 +15,8 @@ module.exports = {
     ['script', { src: '/js/d3.min.js' }],
     ['script', { src: '/js/jquery.js' }],
     ['script', { src: '/js/mapbox-streets-v6-style.js' }],
+    ['script', { src: '/js/jszip.min.js' }],
+    ['script', { src: '/js/gyronorm.complete.min.js' }],
   ],
   plugins: {
     'vuepress-plugin-anchor-toc': {
