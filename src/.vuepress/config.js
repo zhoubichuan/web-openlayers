@@ -8,6 +8,7 @@ module.exports = {
     lineNumbers: true // 代码块显示行号
   },
   head: [
+    ['script', { src: '/js/key.js' }],
     ['script', { src: '/js/elm-pep.js' }],
     ['script', { src: '/js/minified.js' }],
     ['script', { src: '/js/gifler.min.js' }],

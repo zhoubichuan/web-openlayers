@@ -1,0 +1,4 @@
+var mapkeys = {
+    maptiler: "pk.eyJ1IjoiemhvdWJpY2h1YW4iLCJhIjoiY2wyZGRleThpMHk5YjNkcDkzMWNveXB0YSJ9.L0LaQDinn6bNDLgQQmcuxQ",
+    
+}
