@@ -17,6 +17,10 @@ module.exports = {
     ['script', { src: '/js/mapbox-streets-v6-style.js' }],
     ['script', { src: '/js/jszip.min.js' }],
     ['script', { src: '/js/gyronorm.complete.min.js' }],
+    ['script', { src: '/js/arc.js' }],
+    ['script', { src: '/js/geojson-vt-dev.js' }],
+    ['script', { src: '/js/proj4.js' }],
+    ['script', { src: '/js/jsts.min.js' }],
   ],
   plugins: {
     'vuepress-plugin-anchor-toc': {
