@@ -22,6 +22,7 @@ module.exports = {
     ['script', { src: '/js/geojson-vt-dev.js' }],
     ['script', { src: '/js/proj4.js' }],
     ['script', { src: '/js/jsts.min.js' }],
+    ['script', { src: '/js/mapbox-gl.js' }],
   ],
   plugins: {
     'vuepress-plugin-anchor-toc': {
