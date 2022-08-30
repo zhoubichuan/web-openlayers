@@ -14,7 +14,7 @@ const nav = [{
             link: '/base/vue2.x/1.index'
         },
         {
-            text: '四.需求分析',
+            text: '四.需求场景',
             link: '/base/vue3.x/1.index'
         }
     ]
@@ -61,6 +61,23 @@ const nav = [{
 {
     text: 'openlayers资料',
     link: '/read',
+},
+{
+    text: '备用站点',
+    items: [
+        {
+            text: '站点1',
+            link: 'https://zhoubichuan.gitee.io/web-openlayers/'
+        },
+        {
+            text: '站点2',
+            link: 'https://zhoubichuan.github.io/web-openlayers/'
+        },
+        {
+            text: '站点3',
+            link: 'http://zhoubichuan.com/web-openlayers/'
+        },
+    ]
 }
 ]
 module.exports = nav
