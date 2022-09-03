@@ -28,7 +28,7 @@ const nav = [{
         // },
 
         {
-            text: '二.案例',
+            text: '二.样式修改',
             link: '/senior/2.typescript/1.index'
         },
         // {
