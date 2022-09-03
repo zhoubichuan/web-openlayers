@@ -10,7 +10,7 @@ const nav = [{
             link: '/base/project/1.index',
         },
         {
-            text: '三.综合案例',
+            text: '三.服务类型',
             link: '/base/vue2.x/1.index'
         },
         {
