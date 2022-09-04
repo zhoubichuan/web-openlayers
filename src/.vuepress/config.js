@@ -24,6 +24,7 @@ module.exports = {
     ['script', { src: '/js/jsts.min.js' }],
     ['script', { src: '/js/mapbox-gl.js' }],
     ['script', { src: '/js/axios.min.js' }],
+    ['script', { src: '/js/chroma.min.js' }],
   ],
   plugins: {
     'vuepress-plugin-anchor-toc': {
