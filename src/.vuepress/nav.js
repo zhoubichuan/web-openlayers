@@ -2,15 +2,15 @@ const nav = [{
     text: '基础知识',
     items: [
         {
-            text: '一.基础知识',
-            link: '/base/engine/1.index'
+            text: '一.常见属性方法',
+            link: '/base/attribute/1.index'
         },
         {
-            text: '二.初级案例',
-            link: '/base/project/1.index',
+            text: '二.其他属性方法',
+            link: '/base/other/1.index',
         },
         {
-            text: '三.服务类型',
+            text: '三.地图服务类型',
             link: '/base/vue2.x/1.index'
         },
         {
@@ -26,7 +26,6 @@ const nav = [{
         //     text: '一.高精度地图',
         //     link: '/senior/1.micro/1.index'
         // },
-
         {
             text: '二.样式修改',
             link: '/senior/2.typescript/1.index'

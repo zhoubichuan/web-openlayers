@@ -1,21 +1,21 @@
 const sidebar = {
-    '/base/engine/': [
+    '/base/attribute/': [
         '1.index',
-        '1.utils',
-        '2.project',
-        '3.vuecli1',
-        '4.env',
-        '5.ui',
-        '6.layout',
-        '7.single',
-        '8.page',
-        '9.module',
-        '10.skill',
-        '11.mock',
-        '12.optimization',
+        '1.map',
+        '2.map',
+        '3.view',
+        '4.view',
+        '5.layer',
+        '6.layer',
+        '7.controls',
+        '8.controls',
+        '9.overlays',
+        '10.overlays',
+        '11.interactions',
+        '12.interactions',
         '13.deploy'
     ],
-    '/base/project/': [
+    '/base/other/': [
         '1.index',
         '1.config',
         '2.skill',
@@ -26,10 +26,10 @@ const sidebar = {
         '7.internationalization',
         '8.errorCollection',
         '9.event',
-        // '10.server',
-        // '11.pwa',
-        // '12.upload',
-        // '13.video'
+        '10.server',
+        '11.pwa',
+        '12.upload',
+        '13.video'
     ],
     '/base/vue2.x/': [
         '1.index',
