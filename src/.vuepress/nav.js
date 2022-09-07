@@ -22,18 +22,18 @@ const nav = [{
 {
     text: '高级知识',
     items: [
-        // {
-        //     text: '一.高精度地图',
-        //     link: '/senior/1.micro/1.index'
-        // },
+        {
+            text: '一.图层相关',
+            link: '/senior/1.micro/1.index'
+        },
         {
             text: '二.样式修改',
             link: '/senior/2.typescript/1.index'
         },
-        // {
-        //     text: '三.地图封装',
-        //     link: '/senior/3.deploy/1.index'
-        // },
+        {
+            text: '三.地图封装',
+            link: '/senior/3.deploy/1.index'
+        },
         {
             text: '四.案例',
             link: '/senior/4.component/1.index'
