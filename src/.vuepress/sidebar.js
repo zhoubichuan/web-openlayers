@@ -31,10 +31,10 @@ const sidebar = {
         '12.geom',
         '13.data'
     ],
-    '/base/vue2.x/': [
+    '/base/service/': [
         '1.index',
-        '1.vue-cli',
-        '2.vue',
+        '1.arcgis',
+        '2.maptiler',
         '2.vue1',
         '2.vue2',
         '2.vue3',

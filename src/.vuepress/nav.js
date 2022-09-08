@@ -11,7 +11,7 @@ const nav = [{
         },
         {
             text: '三.地图服务类型',
-            link: '/base/vue2.x/1.index'
+            link: '/base/service/1.index'
         },
         {
             text: '四.需求场景',
