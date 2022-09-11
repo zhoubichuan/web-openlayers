@@ -27,7 +27,7 @@ const nav = [{
             link: '/senior/1.micro/1.index'
         },
         {
-            text: '二.样式修改',
+            text: '二.相关插件',
             link: '/senior/2.typescript/1.index'
         },
         {
