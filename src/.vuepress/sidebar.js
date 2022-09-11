@@ -1,5 +1,5 @@
 const sidebar = {
-    '/base/attribute/': [
+    '/base/attr/': [
         '1.index',
         '1.map',
         '2.map',
@@ -15,7 +15,7 @@ const sidebar = {
         '12.interactions',
         '13.deploy'
     ],
-    '/base/other/': [
+    '/base/extend/': [
         '1.index',
         '1.proj',
         '2.feature',
@@ -31,22 +31,34 @@ const sidebar = {
         '12.geom',
         '13.data'
     ],
-    '/base/service/': [
+    '/base/source/': [
         '1.index',
-        '1.arcgis',
-        '2.maptiler',
-        '2.vue1',
-        '2.vue2',
-        '2.vue3',
-        '2.vue4',
-        '3.vue-router',
-        '4.vuex',
-        '5.ui',
-        '6.utils',
-        '7.style',
-        '8.eslint',
+        '1.TileArcGISRest',
+        '2.BingMaps',
+        '3.TileWMS',
+        '4.OSM',
+        '5.Stamen',
+        '6.WMTS',
+        '7.XYZ',
+        '8.VectorTile',
+        '9.GeoTIFF',
+        '10.DataTile',
+        '11.Vector',
+        '12.Heatmap',
+        '13.MapboxVector',
+        '14.OGCMapTile',
+        '15.OGCVectorTile',
+        '16.ImageWMS',
+        '17.Raster',
+        '18.TileJSON',
     ],
-    '/base/vue3.x/': [
+    '/base/layer/': [
+        '1.index',
+        '1.Tile',
+        '2.VectorTile',
+        '3.ImageStatic'
+    ],
+    '/senior/vue3.x/': [
         '1.index',
         '1.vue-cli3',
         '2.life',
@@ -56,12 +68,6 @@ const sidebar = {
         '4.vuex',
         '5.ui',
         '6.vueuse'
-    ],
-    '/senior/1.micro/': [
-        '1.index',
-        '1.singlespa',
-        '2.qiankun',
-        '3.share'
     ],
     '/senior/2.typescript/': [
         '1.index',
