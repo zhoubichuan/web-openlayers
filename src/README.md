@@ -17,7 +17,7 @@ meta:
     <div class="features">
       <div class="feature">
         <h2><a href="/web-openlayers/base/engine/1.index.html">基础知识</a></h2> 
-        <p>掌握openlayers基础知识，能通过相关api实现一个简单的功能，综合相关场景实现一个多场景需求，通过对业务的分析提炼需求点</p>
+        <p>掌握openlayers基础知识，能通过基础类实现简单的应用场景，通过扩展类实现比较复杂的需求，通过对图层和数据源的深入认识理解全面理解openlayers</p>
       </div>
       <div class="feature">
         <h2><a href="/web-openlayers/base/project/1.index.html">高级知识</a></h2> 
