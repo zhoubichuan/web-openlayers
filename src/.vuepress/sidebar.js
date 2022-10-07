@@ -55,8 +55,9 @@ const sidebar = {
     '/base/layer/': [
         '1.index',
         '1.Tile',
-        '2.VectorTile',
-        '3.ImageStatic'
+        '2.Vector',
+        '3.VectorTile',
+        '4.ImageStatic'
     ],
     '/senior/vue3.x/': [
         '1.index',
@@ -91,13 +92,12 @@ const sidebar = {
         '18.statement',
         '19.extend'
     ],
-    '/senior/3.deploy/': [
+    '/senior/3.plugins/': [
         '1.index',
-        '1.local',
-        '2.gitlab',
-        '3.genkins',
-        '4.centos',
-        '5.nginx'
+        '1.jsts',
+        '2.turf',
+        '3.chaikin',
+        '4.topojson',
     ],
     '/senior/4.component/': [
         '1.index',

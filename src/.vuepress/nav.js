@@ -32,7 +32,7 @@ const nav = [{
         },
         {
             text: '三.相关插件',
-            link: '/senior/3.deploy/1.index'
+            link: '/senior/3.plugins/1.index'
         },
         {
             text: '四.案例',
