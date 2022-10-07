@@ -10,11 +10,11 @@ const nav = [{
             link: '/base/extend/1.index',
         },
         {
-            text: '三.layer类',
+            text: '三.图层详解',
             link: '/base/layer/1.index'
         },
         {
-            text: '四.source类',
+            text: '四.图层来源',
             link: '/base/source/1.index'
         },
     ]
@@ -26,16 +26,16 @@ const nav = [{
             text: '一.需求场景',
             link: '/senior/vue3.x/1.index'
         },
+        // {
+        //     text: '二.source',
+        //     link: '/senior/2.typescript/1.index'
+        // },
         {
-            text: '二.source',
-            link: '/senior/2.typescript/1.index'
-        },
-        {
-            text: '三.相关插件',
+            text: '二.相关插件',
             link: '/senior/3.plugins/1.index'
         },
         {
-            text: '四.案例',
+            text: '三.复杂案例',
             link: '/senior/4.component/1.index'
         },
     ]
