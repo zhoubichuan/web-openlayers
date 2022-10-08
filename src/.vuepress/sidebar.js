@@ -111,11 +111,11 @@ const sidebar = {
         '6.form',
         '7.checkBox',
         '8.dispaly',
-        '9.alert',
-        '10.renderTable',
-        '11.slotScopeTable',
-        '12.tree',
-        '13.publish',
+        // '9.alert',
+        // '10.renderTable',
+        // '11.slotScopeTable',
+        // '12.tree',
+        // '13.publish',
     ],
     '/source/vue-cli2.x/': [
         '1.index'
