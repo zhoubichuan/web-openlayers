@@ -7,13 +7,13 @@ const sidebar = {
         '4.view',
         '5.layer',
         '6.layer',
+        '13.deploy',
         '7.controls',
         '8.controls',
         '9.overlays',
         '10.overlays',
         '11.interactions',
         '12.interactions',
-        '13.deploy'
     ],
     '/base/extend/': [
         '1.index',
