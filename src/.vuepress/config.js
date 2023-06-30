@@ -23,6 +23,8 @@ module.exports = {
     ['script', { src: '/js/arc.js' }],
     ['script', { src: '/js/geojson-vt-dev.js' }],
     ['script', { src: '/js/proj4.js' }],
+    ['script', { src: '/js/turf.min.js' }],
+    ['script', { src: '/js/jsts.min.js' }],
     ['script', { src: '/js/mapbox-gl.js' }],
     ['script', { src: '/js/chroma.min.js' }],
     ['script', { src: '/js/chaikin-smooth.js' }],
