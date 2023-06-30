@@ -3,6 +3,8 @@ import * as _ from "lodash";
 import axios from "axios";
 import service from "@/util/request.js";
 import moment from 'moment'
+import jsts from 'jsts'
+import turf from 'turf'
 const qs = require('qs')
 
 export default {
@@ -12,6 +14,8 @@ export default {
     // window._ = _
     // window.$env = process.env
     // Vue.prototype.$SliderRight = SliderRight
+    Vue.prototype.$turf = turf;
+    Vue.prototype.$jsts = jsts;
     Vue.prototype.$service = service;
     Vue.prototype.$qs = qs;
     Vue.prototype.$api = api;
