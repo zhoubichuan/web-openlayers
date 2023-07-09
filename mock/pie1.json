@@ -1,0 +1,34 @@
+{
+  "statusCode": 200,
+  "success": true,
+  "result": {
+    "status": 200,
+    "data": [
+      {
+        "value": 3661,
+        "name": "<10w",
+        "color": "#86D560"
+      },
+      {
+        "value": 5713,
+        "name": "10w-50w",
+        "color": "#AF89D6"
+      },
+      {
+        "value": 9938,
+        "name": "50w-100w",
+        "color": "#59ADF3"
+      },
+      {
+        "value": 17623,
+        "name": "100w-500w",
+        "color": "#FF999A"
+      },
+      {
+        "value": 3299,
+        "name": ">500w",
+        "color": "#FFCC67"
+      }
+    ]
+  }
+}
