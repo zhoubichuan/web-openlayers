@@ -42,7 +42,6 @@ module.exports = {
   alias: {
     mock: path.resolve(__dirname, "../../mock/"),
     "@": path.resolve(__dirname, "../../src/"),
-    vue$: "vue/dist/vue.esm.js",
   },
   postcss: {
     plugins: [require("autoprefixer")],

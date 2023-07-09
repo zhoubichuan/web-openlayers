@@ -36,7 +36,6 @@
     "proj4": "2.9.0",
     "sass-loader": "7.3.1",
     "turf": "3.0.14",
-    "vue": "2.7.14",
     "vuepress-plugin-boxx": "0.0.7",
     "vuepress-plugin-copyright": "^1.0.2",
     "vuepress-plugin-dynamic-title": "^1.0.0",

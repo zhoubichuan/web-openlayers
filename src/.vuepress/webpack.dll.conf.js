@@ -8,7 +8,7 @@ const dllPath = "public/dll";
 module.exports = {
   entry: {
     // 需要提取的库文件
-    vendor: ["vue", "vue-router", "vuex", "axios", "element-ui","ol"],
+    vendor: ["vue-router", "vuex", "axios", "element-ui","ol"],
   },
   output: {
     path: path.join(__dirname, dllPath),
