@@ -1,14 +1,17 @@
 <template>
   <div
+    ref="code"
     class="demo-block"
     :class="[blockClass, { 'hover': hovering }]"
     @mouseenter="hovering = true"
     @mouseleave="hovering = false"
+    @dblclick="handleClick"
   >
-    <div class="demo-content">
+    <div v-if="!show" style="height: 348px;"></div>
+    <div v-else :class="{'demo-content':true,open:open}">
       <slot name="demo"></slot>
     </div>
-    <div class="meta" ref="meta">
+    <div  v-if="show" class="meta" ref="meta">
       <div class="description" v-if="$slots.description">
         <slot name="description"></slot>
       </div>
@@ -17,6 +20,7 @@
       </div>
     </div>
     <div
+      v-if="show"
       class="demo-block-control"
       :class="{ 'is-fixed': fixedControl }"
       :style="{ 'width': fixedControl ? `${codeContentWidth}px` : 'unset' }"
@@ -46,6 +50,8 @@ import defaultLang from './i18n/default_lang.json';
 export default {
   data() {
     return {
+      show:false,
+      open:false,
       hovering: false,
       copied: false,
       isExpanded: false,
@@ -98,6 +104,20 @@ export default {
     }
   },
   methods: {
+    handleScroll(){
+      let judge = window.innerHeight+window.scrollY>this.$refs.code.offsetTop
+        if(judge){
+          this.show = true
+          window.removeEventListener('scroll',this.handleScroll)
+        }
+    },
+    handleClick(){
+      this.open=!this.open
+      this.show = !this.show
+      this.$nextTick(()=>{
+        this.show = !this.show
+      })
+    },
     copyCode() {
       if (this.copied) {
         return;
@@ -142,6 +162,8 @@ export default {
     }
   },
   mounted() {
+    this.handleScroll()
+    window.addEventListener('scroll',this.handleScroll)
     this.$nextTick(() => {
       let codeContent = this.$el.getElementsByClassName('code-content')[0];
       this.codeContentWidth = this.$el.offsetWidth
@@ -157,6 +179,15 @@ export default {
 };
 </script>
 <style scoped>
+.open {
+  position: fixed;
+  height: calc(100vh - 48px)!important;
+  width: calc(100vw - 48px);
+  left: 0;
+  top: 0;
+  background: white;
+  z-index: 1000;
+}
 .demo-block {
   border: solid 1px #ebebeb;
   border-radius: 3px;
@@ -175,6 +206,9 @@ export default {
 }
 .demo-block .demo-content {
   padding: 24px;
+}
+.demo-block .demo-content>div {
+  height: 100%;
 }
 .demo-block .meta {
   background-color: #282c34;
