@@ -2,11 +2,10 @@ import * as api from "@/api/index.js";
 import * as _ from "lodash";
 import axios from "axios";
 import service from "@/util/request.js";
-import moment from 'moment'
-// import turf from 'turf'
-import ol from 'ol'
-
-const qs = require('qs')
+import moment from "moment";
+import * as turf from '@turf/turf'
+import proj4 from "proj4"
+const jsts = require("jsts/dist/jsts.min.js");
 
 export default {
   install(Vue) {
@@ -15,10 +14,10 @@ export default {
     // window._ = _
     // window.$env = process.env
     // Vue.prototype.$SliderRight = SliderRight
-    // Vue.prototype.$turf = turf;
-    Vue.prototype.$ol = ol;
+    Vue.prototype.$proj4 = proj4;
+    Vue.prototype.$turf = turf;
+    Vue.prototype.$jsts = jsts;
     Vue.prototype.$service = service;
-    Vue.prototype.$qs = qs;
     Vue.prototype.$api = api;
     Vue.prototype.$awaitWarp = function (promise) {
       return promise
@@ -47,10 +46,10 @@ export default {
 
     Vue.config.productionTip = false;
     Vue.prototype.$log = console.log;
-    Vue.config.errorHandler = function (err, vm, info) {
-      let { message, name, stack } = err;
-      console.error(name, message, stack);
-    };
+    // Vue.config.errorHandler = function (err, vm, info) {
+    //   let { message, name, stack } = err;
+    //   console.error(name, message, stack);
+    // };
 
     // 由一个组件，向上找到最近的指定组件
     Vue.prototype.$findComponentUpward = function findComponentUpward(

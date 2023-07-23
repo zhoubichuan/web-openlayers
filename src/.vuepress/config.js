@@ -21,9 +21,6 @@ module.exports = {
     ["script", { src: "/js/gyronorm.complete.min.js" }],
     ["script", { src: "/js/arc.js" }],
     ["script", { src: "/js/geojson-vt-dev.js" }],
-    ["script", { src: "/js/proj4.js" }],
-    ["script", { src: "/js/turf.min.js" }],
-    ["script", { src: "/js/jsts.min.js" }],
     ["script", { src: "/js/mapbox-gl.js" }],
     ["script", { src: "/js/chroma.min.js" }],
     ["script", { src: "/js/chaikin-smooth.js" }],
@@ -125,16 +122,6 @@ module.exports = {
           message: "有新的内容更新",
           buttonText: "刷新",
         },
-      },
-    ],
-    [
-      "dynamic-title",
-      {
-        // showIcon: 'https://www.typescriptlang.org/favicon-32x32.png?v=8944a05a8b601855de116c8a56d3b3ae',
-        showText: "(/≧▽≦/)欢迎回来~",
-        // hideIcon: 'https://www.typescriptlang.org/favicon-32x32.png?v=8944a05a8b601855de116c8a56d3b3ae',
-        hideText: "(●—●)bye bye~",
-        recoverTime: 1000,
       },
     ],
     [
