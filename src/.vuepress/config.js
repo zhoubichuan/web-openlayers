@@ -33,18 +33,19 @@ module.exports = {
   beforeDevServer(app, server, compiler) {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false }));
-
     httpRequest(app);
   },
   alias: {
+    "components": path.resolve(__dirname, "../../components/"),
     "demo": path.resolve(__dirname, "../../demo/"),
-    mock: path.resolve(__dirname, "../../mock/"),
+    "mock": path.resolve(__dirname, "./public/mock/"),
     "@": path.resolve(__dirname, "../../src/"),
   },
   postcss: {
     plugins: [require("autoprefixer")],
   },
   stylus: { preferPathResolver: "webpack" },
+  less: {},
   scss: {
     data: `
     @import "~@/assets/style/var.scss";
@@ -54,13 +55,17 @@ module.exports = {
     `,
   },
   sass: { indentedSyntax: true },
-  less: {},
+  dest: "web-openlayers", // 指定 vuepress 的输出目录
+  markdown: {
+    toc: { includeLevel: [2, 3] },
+    lineNumbers: true, // 代码块显示行号
+  },
   plugins: [
     // 设置环境变量
     new Webpack.DefinePlugin({
       "process.env": {
-        NODE_ENV: "production",
-        BASE_API: "/",
+        NODE_ENV: "'production'",
+        BASE_API: "'/'",
       },
     }),
     new Webpack.DllReferencePlugin({
@@ -71,13 +76,6 @@ module.exports = {
       name: "[name]_[hash]",
       context: process.cwd(),
     }),
-  ],
-  dest: "web-openlayers", // 指定 vuepress 的输出目录
-  markdown: {
-    toc: { includeLevel: [2, 3] },
-    lineNumbers: true, // 代码块显示行号
-  },
-  plugins: [
     [require("./demo-preview")],
     [
       "vuepress-plugin-anchor-toc",
