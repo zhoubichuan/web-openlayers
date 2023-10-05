@@ -1,5 +1,7 @@
 <template>
-  <div ref="map" class="map"></div>
+  <div>
+    <div ref="map" class="map"></div>
+  </div>
 </template>
 <script>
 import { Map, View } from "ol";
@@ -8,6 +10,7 @@ import { WebGLTile as TileLayer } from "ol/layer";
 debugger
 export default {
   mounted() {
+    debugger
     new Map({
       target: this.$refs.map,
       layers: [
@@ -28,6 +31,6 @@ export default {
 <style>
 .map {
   width: 100%;
-  height: 100%;
+  height: 400px;
 }
 </style>
