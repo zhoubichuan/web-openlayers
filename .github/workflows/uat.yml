@@ -11,7 +11,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "16.5.0"
+          node-version: "14.17.0"
       - name: Install npm dependencies
         run: npm install
       - name: Run build task
@@ -23,5 +23,14 @@ jobs:
           host: ${{ secrets.HOST }}
           target: "/usr/src/zhoubichuan/uat/"
           port: ${{ secrets.PORT }}
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.PASSWORD }}
+      - name: copy file  via ssh key
+        uses: appleboy/scp-action@master
+        with:
+          source: "demo/*"
+          host: ${{ secrets.HOST }}
+          target: "/usr/src/zhoubichuan/uat/web-openlayers/"
+          port:  ${{ secrets.PORT }}
           username: ${{ secrets.USER }}
           password: ${{ secrets.PASSWORD }}

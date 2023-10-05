@@ -17,7 +17,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "16.5.0"
+          node-version: "14.17.0"
 
       # 生成静态文件
       - name: Build
