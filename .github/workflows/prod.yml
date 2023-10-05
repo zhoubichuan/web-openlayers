@@ -25,3 +25,12 @@ jobs:
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USER }}
           password: ${{ secrets.PASSWORD }}
+      - name: copy file  via ssh key
+        uses: appleboy/scp-action@master
+        with:
+          source: "demo/*"
+          host: ${{ secrets.HOST }}
+          target: "/usr/src/zhoubichuan/prod/web-openlayers/"
+          port:  ${{ secrets.PORT }}
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.PASSWORD }}

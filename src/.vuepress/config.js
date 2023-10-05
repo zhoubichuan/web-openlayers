@@ -37,6 +37,7 @@ module.exports = {
     httpRequest(app);
   },
   alias: {
+    "demo": path.resolve(__dirname, "../../demo/"),
     mock: path.resolve(__dirname, "../../mock/"),
     "@": path.resolve(__dirname, "../../src/"),
   },
