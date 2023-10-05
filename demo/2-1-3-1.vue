@@ -20,7 +20,7 @@ let {
   source: { XYZ, Vector: VectorSource },
   proj: { fromLonLat },
   control: { OverviewMap, defaults },
-} = require("ol");
+} = ol;
 export default {
   data() {
     return {

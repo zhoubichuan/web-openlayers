@@ -24,7 +24,7 @@ let {
   style: { Circle: CircleStyle, Fill, Stroke, Style, Icon },
   interaction: { Draw, Modify, Snap },
   proj: { get },
-} = require("ol");
+} = ol;
 export default {
   data() {
     return {
@@ -280,10 +280,10 @@ export default {
 <style>
 .content{
   width: 100%;
-  height: 400px;
+  height: 100%;
 }
 .map {
   width: 100%;
-  height: 400px;
+  height: 100%;
 }
 </style>

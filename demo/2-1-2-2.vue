@@ -1,12 +1,11 @@
 <template>
-  <div class="content">
+  <div>
     <div ref="map" class="map"></div>
     <button ref="btn">轨迹回放</button>
   </div>
 </template>
   
   <script>
-import ol from 'ol'
 export default {
   async mounted() {
     // 获取轨迹点
@@ -141,10 +140,6 @@ export default {
 };
 </script>
 <style>
-.content{
-  width: 100%;
-  height: 400px;
-}
 .map {
   width: 100%;
   height: 400px;

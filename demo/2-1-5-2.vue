@@ -27,7 +27,7 @@ let {
   source: { OSM, Vector: VectorSource },
   style: { Circle: CircleStyle, Fill, RegularShape, Stroke, Style, Text },
   sphere: { getArea, getLength },
-} = require("ol");
+} = ol;
 export default {
   mounted() {
     const typeSelect = document.getElementById("type");

@@ -12,7 +12,7 @@ let {
   style: { Circle: CircleStyle, Fill, RegularShape, Stroke, Style, Text },
   format: { KML },
   extent: { createEmpty, extend, getHeight, getWidth },
-} = require("ol");
+} = ol;
 export default {
   mounted() {
     const earthquakeFill = new Fill({

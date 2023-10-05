@@ -23,7 +23,7 @@ let {
   style: { Circle: CircleStyle, Fill, Stroke, Style },
   sphere: { getArea, getLength },
   Observable: { unByKey },
-} = require("ol");
+} = ol;
 export default {
   mounted() {
     const source = new VectorSource();

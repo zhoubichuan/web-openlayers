@@ -10,7 +10,7 @@ let {
   layer: { Tile: TileLayer, Vector: VectorLayer },
   source: { XYZ, Vector: VectorSource },
   style: { Fill, Stroke, Style },
-} = require("ol");
+} = ol;
 export default {
   async mounted() {
     let chinaLayer = new VectorLayer({

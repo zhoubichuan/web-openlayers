@@ -9,7 +9,7 @@ let {
   layer: { Tile: TileLayer, Heatmap: HeatmapLayer },
   source: { Stamen, Vector: VectorSource },
   format: { KML },
-} = require("ol");
+} = ol;
 export default {
   mounted() {
     const blur = document.getElementById("blur");

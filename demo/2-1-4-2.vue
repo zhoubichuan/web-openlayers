@@ -12,7 +12,7 @@ let {
   source: { Stamen, Vector: VectorSource },
   style: { Fill, Icon, Stroke, Style },
   render: { toContext },
-} = require("ol");
+} = ol;
 export default {
   mounted() {
     const symbol = [

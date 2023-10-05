@@ -8,18 +8,18 @@
 </template>
 
 <script>
-let {
-  Feature,
-  geom: {
-    Polygon: { circular: circularPolygon },
-  },
-  Map,
-  View,
-  layer: { Tile: TileLayer, Vector: VectorLayer },
-  source: { TileWMS, Vector: VectorSource },
-} = require("ol");
 export default {
   mounted() {
+    let {
+      Feature,
+      geom: {
+        Polygon: { circular: circularPolygon },
+      },
+      Map,
+      View,
+      layer: { Tile: TileLayer, Vector: VectorLayer },
+      source: { TileWMS, Vector: VectorSource },
+    } = ol;
     const vectorLayer4326 = new VectorLayer({
       source: new VectorSource(),
     });

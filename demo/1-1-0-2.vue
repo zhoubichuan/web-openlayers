@@ -12,14 +12,14 @@
 </template>
 
 <script>
-let {
-  Map,
-  View,
-  layer: { Tile: TileLayer },
-  source: { XYZ },
-} = require("ol");
 export default {
   mounted() {
+    let {
+      Map,
+      View,
+      layer: { Tile: TileLayer },
+      source: { XYZ },
+    } = ol;
     const attributions =
       '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> ' +
       '<a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>';

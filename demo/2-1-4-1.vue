@@ -10,7 +10,7 @@ let {
   source: { Stamen, Vector: VectorSource },
   style: { Circle: CircleStyle, Fill, Stroke, Style },
   format: { KML },
-} = require("ol");
+} = ol;
 export default {
   mounted() {
     const styleCache = {};
