@@ -12,20 +12,20 @@
 </template>
   
   <script>
+let {
+  interaction: { Draw },
+  Overlay,
+  geom: { LineString, Polygon },
+  Map,
+  View,
+  layer: { Tile: TileLayer, Vector: VectorLayer },
+  source: { OSM, Vector: VectorSource },
+  style: { Circle: CircleStyle, Fill, Stroke, Style },
+  sphere: { getArea, getLength },
+  Observable: { unByKey },
+} = require("ol");
 export default {
   mounted() {
-    let {
-      interaction: { Draw },
-      Overlay,
-      geom: { LineString, Polygon },
-      Map,
-      View,
-      layer: { Tile: TileLayer, Vector: VectorLayer },
-      source: { OSM, Vector: VectorSource },
-      style: { Circle: CircleStyle, Fill, Stroke, Style },
-      sphere: { getArea, getLength },
-      Observable: { unByKey },
-    } = ol;
     const source = new VectorSource();
     const vector = new VectorLayer({
       source: source,

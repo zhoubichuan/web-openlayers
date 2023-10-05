@@ -6,6 +6,7 @@
 </template>
   
   <script>
+import ol from "ol";
 export default {
   async mounted() {
     // 获取轨迹点

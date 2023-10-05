@@ -18,18 +18,18 @@
 </template>
   
   <script>
+let {
+  interaction: { Draw, Modify },
+  geom: { LineString, Point },
+  Map,
+  View,
+  layer: { Tile: TileLayer, Vector: VectorLayer },
+  source: { OSM, Vector: VectorSource },
+  style: { Circle: CircleStyle, Fill, RegularShape, Stroke, Style, Text },
+  sphere: { getArea, getLength },
+} = require("ol");
 export default {
   mounted() {
-    let {
-      interaction: { Draw, Modify },
-      geom: { LineString, Point },
-      Map,
-      View,
-      layer: { Tile: TileLayer, Vector: VectorLayer },
-      source: { OSM, Vector: VectorSource },
-      style: { Circle: CircleStyle, Fill, RegularShape, Stroke, Style, Text },
-      sphere: { getArea, getLength },
-    } = ol;
     const typeSelect = document.getElementById("type");
     const showSegments = document.getElementById("segments");
     const clearPrevious = document.getElementById("clear");
