@@ -1,5 +1,5 @@
 const sidebar = {
-    '/base/attr/': [
+    '/base/attribute/': [
         '1.index',
         '1.map',
         '2.map',
@@ -61,7 +61,7 @@ const sidebar = {
         '3.VectorTile',
         '4.ImageStatic'
     ],
-    '/senior/vue3.x/': [
+    '/senior/sence/': [
         '1.index',
         '1.vue-cli3',
         '2.life',
@@ -93,7 +93,7 @@ const sidebar = {
     //     '18.statement',
     //     '19.extend'
     // ],
-    '/senior/3.plugins/': [
+    '/senior/plugins/': [
         '1.index',
         '1.jsts',
         '2.turf',
@@ -101,7 +101,7 @@ const sidebar = {
         '4.topojson',
         '5.proj4',
     ],
-    '/senior/4.component/': [
+    '/senior/case/': [
         '1.index',
         '1.env',
         '1.recursion',

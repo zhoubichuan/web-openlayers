@@ -3,7 +3,7 @@ const nav = [{
     items: [
         {
             text: '一.基础类',
-            link: '/base/attr/1.index'
+            link: '/base/attribute/1.index'
         },
         {
             text: '二.扩展类',
@@ -24,7 +24,7 @@ const nav = [{
     items: [
         {
             text: '一.需求场景',
-            link: '/senior/vue3.x/1.index'
+            link: '/senior/sence/1.index'
         },
         // {
         //     text: '二.source',
@@ -32,11 +32,11 @@ const nav = [{
         // },
         {
             text: '二.相关插件',
-            link: '/senior/3.plugins/1.index'
+            link: '/senior/plugins/1.index'
         },
         {
             text: '三.复杂案例',
-            link: '/senior/4.component/1.index'
+            link: '/senior/case/1.index'
         },
     ]
 },
