@@ -1,10 +1,11 @@
 <template>
-  <div>
+  <div ref="code">
     <ClientOnly>
       <!-- <a href="/Example1.vue">下载</a> -->
-      <div class="container">
+      <div class="container" v-if="show">
         <slot>
           <iframe
+            ref="iframe"
             :src="url"
             width="100%"
             height="520"
@@ -14,6 +15,7 @@
           ></iframe>
         </slot>
       </div>
+      <div v-else>...正在加载中</div>
       <div>
         <!-- <code>{{ require("./Example1.vue").default }}</code> -->
       </div>
@@ -34,8 +36,32 @@ export default {
       show: false,
     };
   },
-  methods: {},
-  mounted() {},
+  methods: {
+    handleScroll() {
+      let judge =
+        window.innerHeight + window.scrollY > this.$refs.code.offsetTop + 100;
+      if (judge) {
+        this.show = true;
+        window.removeEventListener("scroll", this.handleScroll);
+      }
+    },
+    handleLoading() {
+      var parFrame = this.refs.iframe;
+      if (parFrame.attachEvent) {
+        parFrame.attachEvent("onload", function () {
+          console.log("ie"); //IE，不包含edge
+        });
+      } else {
+        parFrame.onload = function () {
+          console.log("iframe加载完成");
+        };
+      }
+    },
+  },
+  mounted() {
+    this.handleScroll();
+    window.addEventListener("scroll", this.handleScroll);
+  },
 };
 </script>
 <style lang="scss" scoped>
