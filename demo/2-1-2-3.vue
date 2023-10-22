@@ -1,14 +1,23 @@
 <template>
-  <div  class="content">
+  <div class="content">
     <div ref="map" class="map" />
-    <label for="speed">
-      速度:&nbsp;
-      <input ref="speed" type="range" min="10" max="999" step="10" value="60" />
-    </label>
-    <button ref="startanimation">开始</button>
-    <button ref="pauseanimation">暂停</button>
-    <button ref="continueanimation">继续</button>
-    <button ref="stopanimation">结束</button>
+    <div class="handle">
+      <label for="speed">
+        速度:&nbsp;
+        <input
+          ref="speed"
+          type="range"
+          min="10"
+          max="999"
+          step="10"
+          value="60"
+        />
+      </label>
+      <button ref="startanimation">开始</button>
+      <button ref="pauseanimation">暂停</button>
+      <button ref="continueanimation">继续</button>
+      <button ref="stopanimation">结束</button>
+    </div>
   </div>
 </template>
   
@@ -278,12 +287,18 @@ export default {
 };
 </script>
 <style>
-.content{
+.content {
   width: 100%;
   height: 100%;
+  position: relative;
 }
 .map {
   width: 100%;
   height: 100%;
+}
+.handle{
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 </style>
