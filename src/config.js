@@ -5,7 +5,7 @@ import service from "@/util/request.js";
 import moment from "moment";
 import * as turf from '@turf/turf'
 import proj4 from "proj4"
-const jsts = require("jsts/dist/jsts.min.js");
+// const jsts = require("jsts/dist/jsts.min.js");
 
 export default {
   install(Vue) {
@@ -16,7 +16,7 @@ export default {
     // Vue.prototype.$SliderRight = SliderRight
     Vue.prototype.$proj4 = proj4;
     Vue.prototype.$turf = turf;
-    Vue.prototype.$jsts = jsts;
+    // Vue.prototype.$jsts = jsts;
     Vue.prototype.$service = service;
     Vue.prototype.$api = api;
     Vue.prototype.$awaitWarp = function (promise) {
