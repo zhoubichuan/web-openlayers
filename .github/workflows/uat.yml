@@ -22,13 +22,13 @@ jobs:
           source: "web-openlayers/*"
           host: ${{ secrets.HOST }}
           target: "/usr/src/zhoubichuan/uat/"
-          port: ${{ secrets.PORT }}
+          port:  ${{ secrets.PORT }}
           username: ${{ secrets.USER }}
           password: ${{ secrets.PASSWORD }}
       - name: copy file  via ssh key
         uses: appleboy/scp-action@master
         with:
-          source: "demo/*"
+          source: "components/demo/*"
           host: ${{ secrets.HOST }}
           target: "/usr/src/zhoubichuan/uat/web-openlayers/"
           port:  ${{ secrets.PORT }}
