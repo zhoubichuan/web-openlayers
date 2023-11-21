@@ -1,12 +1,12 @@
 <template>
-  <div ref="map" class="map" style="position: relative">
+  <WebOLChina >
     <button
       style="position: absolute; z-index: 100; right: 0"
       @click="handleClick"
     >
       {{ !show ? "显示" : "隐藏" }}底图
     </button>
-  </div>
+  </WebOLChina>
 </template>
   
   <script>
@@ -21,6 +21,7 @@ let {
   proj: { fromLonLat },
   control: { OverviewMap, defaults },
 } = ol;
+import chinaJSON from 'web-openlayers/data/100000_full.json'
 export default {
   data() {
     return {
@@ -29,9 +30,6 @@ export default {
     };
   },
   async mounted() {
-    let { data } = await this.$axios.get(
-      this.$withBase("/data/100000_full.json")
-    );
     let layer = new TileLayer(
       {
         source: new XYZ({
@@ -62,7 +60,7 @@ export default {
     map.addLayer(areaLayer);
 
     let areaFeature = null;
-    data.features.forEach((g) => {
+    chinaJSON.features.forEach((g) => {
       let lineData = g;
       if (lineData.geometry.type == "MultiPolygon") {
         areaFeature = new Feature({

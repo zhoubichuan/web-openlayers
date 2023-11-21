@@ -1,12 +1,12 @@
 {
   "name": "web-openlayers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "web-openlayers",
   "main": "index.js",
   "author": "zhoubichaun@icloud.com",
   "hommepage": "https://github.com/zhoubichuan/web-openlayers",
   "license": "MIT",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "build": "cnpm i && gulp"
   },
@@ -15,5 +15,8 @@
     "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-uglify": "^3.0.2"
-  }
+  },
+  "__npminstall_done": "Tue Nov 21 2023 00:15:45 GMT+0800 (中国标准时间)",
+  "_from": "web-openlayers@1.0.0",
+  "_resolved": "https://registry.npmmirror.com/web-openlayers/-/web-openlayers-1.0.0.tgz"
 }

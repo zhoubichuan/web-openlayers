@@ -1,214 +1,98 @@
 <template>
-  <div ref="bar" style="height: 100%"></div>
+  <div ref="map" class="map"></div>
 </template>
-  
-  <script>
-const labelRight = {
-  position: "right",
-};
+
+<script>
 export default {
-  name: "WebBar",
-  props: {
-    config: {
-      type: Function,
-    },
-    data: {
-      type: [Array, Object],
-      default: () => [],
-    },
-    styles: {
-      type: String,
-      default: "height: 100%;width:800px;",
-    },
-    title: {
-      type: [Array, Object],
-      default: () => ({
-        text: "统计数据",
-        subtext: "单位：个",
-      }),
-    },
-    tooltip: {
-      type: [Array, Object],
-      default: () => [
-        {
-          trigger: "axis",
-          axisPointer: {
-            type: "shadow",
-          },
-        },
-      ],
-    },
-    grid: {
-      type: [Array, Object],
-      default: () => [
-        {
-          top: "250",
-          bottom: 30,
-        },
-      ],
-    },
-    legend: {
-      type: [Array, Object],
-      default: () => [
-        {
-          orient: "vertical",
-          left: "0%",
-          top: "0%",
-          bottom: "center",
-          data: ["<10w", "10w-50w", "50w-100w", "100w-500w", ">500w"],
-        },
-      ],
-    },
-    xAxis: {
-      type: [Array, Object],
-      default: () => [
-        {
-          type: "value",
-          position: "top",
-          splitLine: {
-            lineStyle: {
-              type: "dashed",
-            },
-          },
-        },
-      ],
-    },
-    yAxis: {
-      type: [Array, Object],
-      default: () => [
-        {
-          type: "category",
-          axisLine: { show: false },
-          axisLabel: { show: false },
-          axisTick: { show: false },
-          splitLine: { show: false },
-          data: [
-            "ten",
-            "nine",
-            "eight",
-            "seven",
-            "six",
-            "five",
-            "four",
-            "three",
-            "two",
-            "one",
-          ],
-        },
-      ],
-    },
-    series: {
-      type: [Array, Object],
-      default: () => [
-        {
-          name: "Cost",
-          type: "bar",
-          stack: "Total",
-          label: {
-            show: true,
-            formatter: "{b}",
-          },
-          data: [
-            { value: -0.07, label: labelRight },
-            { value: -0.09, label: labelRight },
-            0.2,
-            0.44,
-            { value: -0.23, label: labelRight },
-            0.08,
-            { value: -0.17, label: labelRight },
-            0.47,
-            { value: -0.36, label: labelRight },
-            0.18,
-          ],
-        },
-      ],
-    },
-  },
-  data() {
-    return {
-      option: {
-        title: this.title ? this.titleTransform(this.title) : [],
-        tooltip: this.tooltip,
-        grid: this.grid,
-        legend: this.legend,
-        xAxis: this.xAxis,
-        yAxis: this.yAxis,
-        series: this.series,
-      },
-      charts: null,
-    };
-  },
-  methods: {
-    titleTransform({ text, subtext, ...others }) {
-      let arr = [];
-      let target = {};
-      if (text) {
-        target = {
-          text: "{style1|}{style2|}{style3|}" + text,
-          textStyle: {
-            fontWeight: "800",
-            color: "#333",
-            fontSize: 18,
-            rich: {
-              style1: {
-                height: 20,
-                width: 4,
-                backgroundColor: "#2d65f2",
-              },
-              style2: {
-                height: 20,
-                width: 4,
-                backgroundColor: "#b2c2ff",
-              },
-              style3: {
-                width: 10,
-              },
-            },
-          },
-          left: 0,
-          top: 0,
-          ...others,
-        };
-        arr.push(target);
-      }
-      if (subtext) {
-        target = {
-          subtext: "{style1|}" + subtext,
-          subtextStyle: {
-            align: "right",
-            verticalAlign: "top",
-            color: "#666",
-            fontSize: "18",
-            rich: {
-              style1: {},
-            },
-          },
-          right: 0,
-          top: -10,
-          ...others,
-        };
-      }
-      arr.push(target);
-      return arr;
-    },
-  },
+  name: "WebOpenlayers",
   mounted() {
-    this.charts = this.$echarts.init(this.$refs.bar);
-    if (!this.config) {
-      this.charts.setOption(this.option);
+    let {
+      Map,
+      View,
+      extent: { getWidth, getTopLeft },
+      proj: { get: getProjection },
+      tilegrid: { WMTS: WMTSTileGrid },
+      layer: { Tile: TileLayer },
+      source: { WMTS },
+    } = ol;
+    const projection = getProjection("EPSG:900913");
+    const projectionExtent = projection.getExtent();
+    const size = getWidth(projectionExtent) / 256;
+    const resolutions = new Array(19);
+    const matrixIds = new Array(19);
+    for (let z = 0; z < 19; ++z) {
+      resolutions[z] = size / Math.pow(2, z);
+      matrixIds[z] = z;
     }
-  },
-  watch: {
-    data: {
-      handler(val) {
-        let { title, ...option } = this.config(val);
-        this.charts.setOption({
-          title: title ? this.titleTransform(title) : [],
-          ...option,
-        });
-      },
-      deep: true,
-    },
+    const tileGrid = new WMTSTileGrid({
+      origin: getTopLeft(projectionExtent),
+      resolutions: resolutions,
+      matrixIds: matrixIds,
+    });
+    var TiandiMap_vec = new ol.layer.Tile({
+      name: "天地图矢量图层",
+      source: new ol.source.XYZ({
+        url: "http://t0.tianditu.com/DataServer?T=vec_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
+        wrapX: false,
+      }),
+    });
+    var TiandiMap_cva = new ol.layer.Tile({
+      name: "天地图矢量注记图层",
+      source: new ol.source.XYZ({
+        url: "http://t0.tianditu.com/DataServer?T=cva_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
+        wrapX: false,
+      }),
+    });
+    var TiandiMap_img = new ol.layer.Tile({
+      name: "天地图影像图层",
+      source: new ol.source.XYZ({
+        url: "http://t0.tianditu.com/DataServer?T=img_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
+        wrapX: false,
+      }),
+    });
+    var TiandiMap_cia = new ol.layer.Tile({
+      name: "天地图影像注记图层",
+      source: new ol.source.XYZ({
+        url: "http://t0.tianditu.com/DataServer?T=cia_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
+        wrapX: false,
+      }),
+    });
+    var TiandiMap_ter = new ol.layer.Tile({
+      name: "天地图地形图层",
+      source: new ol.source.XYZ({
+        url: "http://t0.tianditu.com/DataServer?T=ter_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
+        wrapX: false,
+      }),
+    });
+    var TiandiMap_cta = new ol.layer.Tile({
+      name: "天地图地形注记图层",
+      source: new ol.source.XYZ({
+        url: "http://t0.tianditu.com/DataServer?T=cta_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
+        wrapX: false,
+      }),
+    });
+
+    new Map({
+      view: new View({
+        center: [12579156, 3274244],
+        zoom: 12,
+      }),
+      layers: [
+        TiandiMap_vec,
+        // TiandiMap_cva,
+        // TiandiMap_img,
+        // TiandiMap_cia,
+        // TiandiMap_ter,
+        // TiandiMap_cta,
+      ],
+      target: this.$refs.map,
+    });
   },
 };
 </script>
+<style>
+.map {
+  width: 100%;
+  height: 100%;
+}
+</style>

@@ -1,29 +1,26 @@
 <template>
-  <div ref="map" class="map"></div>
+  <WebOpenlayers2 :layer="layer"></WebOpenlayers2>
 </template>
+
 <script>
 export default {
-  mounted() {
-    let {
-      Map,
-      View,
-      layer: { WebGLTile: TileLayer },
-      source: { Stamen },
-    } = ol;
-    new Map({
-      target: this.$refs.map,
-      layers: [
-        new TileLayer({
-          source: new Stamen({
-            layer: "watercolor",
-          }),
-        }),
+  data() {
+    return {
+      layer: [
+        {
+          name: "WebGLTile",
+          source: {
+            name: "Stamen",
+            config() {
+              return {
+                layer: "watercolor",
+              };
+            },
+          },
+        },
       ],
-      view: new View({
-        center: [12579156, 3274244],
-        zoom: 12,
-      }),
-    });
+    };
   },
 };
 </script>
+
