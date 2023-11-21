@@ -19,7 +19,7 @@ export default {
       layers: [
         new VectorLayer({
           source: new VectorSource({
-            url: "/data/100000_full.json",
+            url: "./data/100000_full.json",
             format: new GeoJSON(),
           }),
         }),

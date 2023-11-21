@@ -1,12 +1,5 @@
 <template>
-  <div ref="map" class="map" style="position: relative">
-    <button
-      style="position: absolute; z-index: 100; right: 0"
-      @click="handleClick"
-    >
-      {{ !show ? "显示" : "隐藏" }}底图
-    </button>
-  </div>
+  <div ref="map" class="map"></div>
 </template>
   
   <script>
@@ -21,9 +14,22 @@ let {
   proj: { fromLonLat },
   control: { OverviewMap, defaults },
 } = ol;
-import chinaJSON from "web-openlayers/data/100000_full.json";
+import china from "./data/100000_full.json";
+import province from "./data/topojson/province.json";
+import world from "./data/topojson/world-110m.json";
+let target = {
+  china,
+  province,
+  world,
+};
 export default {
   name: "WebOLChina",
+  props: {
+    type: {
+      type: String,
+      defaults: "china",
+    },
+  },
   data() {
     return {
       layer: "",
@@ -31,24 +37,14 @@ export default {
     };
   },
   async mounted() {
-    let layer = new TileLayer(
-      {
-        source: new XYZ({
-          url: "http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineCommunityENG/MapServer/tile/{z}/{y}/{x}",
-        }),
-      },
-      { zoomOffset: 1 }
-    );
-    this.layer = layer;
     let map = new Map({
       target: this.$refs.map,
       controls: defaults({
         zoom: true,
       }).extend([]),
-      layers: [layer],
       view: new View({
         center: fromLonLat([108.522097, 37.272848]),
-        zoom: 2,
+        zoom: 3,
         maxZoom: 19,
         minZoom: 1,
       }),
@@ -59,9 +55,8 @@ export default {
       }),
     });
     map.addLayer(areaLayer);
-
     let areaFeature = null;
-    chinaJSON.features.forEach((g) => {
+    target[this.type].features.forEach((g) => {
       let lineData = g;
       if (lineData.geometry.type == "MultiPolygon") {
         areaFeature = new Feature({
@@ -90,11 +85,11 @@ export default {
       areaLayer.getSource().addFeatures([areaFeature]);
     });
   },
-  methods: {
-    handleClick() {
-      this.show = !this.show;
-      this.layer.setVisible(this.show);
-    },
-  },
 };
 </script>
+<style>
+.map {
+  width: 100%;
+  height: 100%;
+}
+</style>

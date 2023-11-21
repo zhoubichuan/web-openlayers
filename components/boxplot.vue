@@ -19,7 +19,9 @@ export default {
     view: {
       type: Object,
       default: () => ({
-        center: [12579156, 3274244],
+        center() {
+          return [12579156, 3274244];
+        },
         zoom: 12,
       }),
     },
@@ -66,7 +68,13 @@ export default {
             ),
           })
       ),
-      view: new View(this.view),
+      view: new View({
+        ...this.view,
+        center:
+          typeof this.view === "function"
+            ? this.view.center(proj)
+            : this.view.center,
+      }),
     });
   },
   methods: {

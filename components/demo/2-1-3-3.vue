@@ -17,7 +17,7 @@ export default {
       layers: [
         new VectorLayer({
           source: new VectorSource({
-            url: this.$withBase("/data/topojson/world-110m.json"),
+            url: "./data/topojson/world-110m.json",
             format: new TopoJSON({
               layers: ["countries"],
             }),

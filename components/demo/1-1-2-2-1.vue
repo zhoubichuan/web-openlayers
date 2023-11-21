@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import chinaJSON from "web-openlayers/data/100000_full.json";
 export default {
   mounted() {
     let {
@@ -25,7 +24,7 @@ export default {
       layers: [
         new VectorLayer({
           source: new VectorSource({
-            url: chinaJSON,
+            url: '../data/100000_full.json',
             format: new GeoJSON(),
           }),
         }),

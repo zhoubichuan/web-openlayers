@@ -1,28 +1,19 @@
 <template>
-  <div ref="map" class="map"></div>
+  <WebOpenlayers2 :view="view"></WebOpenlayers2>
 </template>
+
 <script>
 export default {
-  mounted() {
-    let {
-      Map,
-      View,
-      layer: { WebGLTile: TileLayer },
-      source: { OSM },
-    } = ol
-    new Map({
-      target: this.$refs.map,
-      layers: [
-        new TileLayer({
-          source: new OSM(),
-        }),
-      ],
-      view: new View({
+  data() {
+    return {
+      view: {
         constrainRotation: false,
         center: [12579156, 3274244],
-        zoom: 12,
-      }),
-    })
+        zoom: 4,
+      },
+    };
   },
-}
+};
 </script>
+
+
