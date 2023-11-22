@@ -1,5 +1,8 @@
 <template>
-  <div ref="map" class="map"></div>
+  <div class="wrap-map">
+    <div class="map" ref="map"></div>
+    <slot></slot>
+  </div>
 </template>
 
 <script>
@@ -90,9 +93,14 @@ export default {
   },
 };
 </script>
-<style>
-.map {
+
+<style lang="scss" scoped>
+.wrap-map {
   width: 100%;
   height: 100%;
+  .map {
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>

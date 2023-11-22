@@ -1,8 +1,11 @@
 <template>
-  <div ref="map" class="map"></div>
+  <div class="wrap-map">
+    <div class="map" ref="map"></div>
+    <slot></slot>
+  </div>
 </template>
   
-  <script>
+<script>
 let {
   Map,
   View,
@@ -44,7 +47,7 @@ export default {
       }).extend([]),
       view: new View({
         center: fromLonLat([108.522097, 37.272848]),
-        zoom: 3,
+        zoom: 4,
         maxZoom: 19,
         minZoom: 1,
       }),
@@ -87,9 +90,14 @@ export default {
   },
 };
 </script>
-<style>
-.map {
+
+<style lang="scss" scoped>
+.wrap-map {
   width: 100%;
   height: 100%;
+  .map{
+      width: 100%;
+  height: 100%;
+  }
 }
 </style>

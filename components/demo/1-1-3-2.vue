@@ -1,5 +1,5 @@
 <template>
-  <WebOpenlayers2 :view="view" @mapMounted="mapMounted"></WebOpenlayers2>
+  <WebOpenlayers2 :view="view"></WebOpenlayers2>
 </template>
 
 <script>
