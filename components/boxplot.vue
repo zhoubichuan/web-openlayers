@@ -61,9 +61,9 @@ export default {
     mapInstance = new Map({
       target: this.$refs.map,
       layers: this.layer.map(
-        (item) =>
-          new layer[item.name]({
-            source: new source[item.source.name](
+        ({name,source}) =>
+          new layer[name]({
+            source: new source[source.name](
               item.source.config && item.source.config({ projection, tileGrid })
             ),
           })

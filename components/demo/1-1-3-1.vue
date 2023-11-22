@@ -1,15 +1,15 @@
 <template>
-  <WebOLChina type="china"> </WebOLChina>
-  <!-- <WebOLChina type="province"> </WebOLChina> -->
-  <!-- <WebOLChina type="world"> </WebOLChina> -->
+  <WebOpenlayers2 :view="view"></WebOpenlayers2>
 </template>
-  
+
 <script>
 export default {
   data() {
     return {
-      layer: "",
-      show: true,
+      view: {
+        center: [12579156, 3274244],
+        zoom: 4,
+      },
     };
   },
 };
