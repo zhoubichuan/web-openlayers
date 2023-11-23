@@ -16,6 +16,7 @@ let {
   source: { XYZ, Vector: VectorSource },
   proj: { fromLonLat },
   control: { OverviewMap, defaults },
+  has,
 } = ol;
 import china from "./data/100000_full.json";
 import province from "./data/topojson/province.json";
@@ -25,6 +26,7 @@ let target = {
   province,
   world,
 };
+let map;
 export default {
   name: "WebOLChina",
   props: {
@@ -39,8 +41,24 @@ export default {
       show: true,
     };
   },
+  methods: {
+    events(Map) {
+      let that = this;
+      map.on("singleclick", function (e) {
+        map.forEachFeatureAtPixel(e.pixel, function (f) {
+          that.$emit("singleclick", f);
+        });
+      });
+      map.on("movestart", function (evt) {
+        that.$emit("movestart", { evt, ol });
+      });
+      map.on("moveend", function (evt) {
+        that.$emit("moveend", { evt, ol });
+      });
+    },
+  },
   async mounted() {
-    let map = new Map({
+    map = new Map({
       target: this.$refs.map,
       controls: defaults({
         zoom: true,
@@ -58,6 +76,8 @@ export default {
       }),
     });
     map.addLayer(areaLayer);
+    this.$emit("oLMounted", { has, style: { Fill, Stroke, Style } });
+    this.events(map);
     let areaFeature = null;
     target[this.type].features.forEach((g) => {
       let lineData = g;
@@ -95,9 +115,9 @@ export default {
 .wrap-map {
   width: 100%;
   height: 100%;
-  .map{
-      width: 100%;
-  height: 100%;
+  .map {
+    width: 100%;
+    height: 100%;
   }
 }
 </style>

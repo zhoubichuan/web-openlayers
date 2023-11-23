@@ -7,10 +7,7 @@
 <script>
 export default {
   data() {
-    return {
-      layer: "",
-      show: true,
-    };
+    return {};
   },
 };
 </script>
