@@ -104,10 +104,10 @@ const sidebar = {
     '/senior/case/': [
         '1.index',
         '1.env',
-        '1.recursion',
         '2.dynamics',
         '3.dialog',
         '4.render',
+        '5.recursion',
         '6.form',
         '7.checkBox',
         '8.dispaly',

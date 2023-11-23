@@ -43,8 +43,6 @@
     "less": "3.0.2",
     "less-loader": "4.1.0",
     "node-sass": "4.14.1",
-    "ol": "7.4.0",
-    "proj4": "2.9.0",
     "sass-loader": "7.3.1",
     "vuepress-plugin-boxx": "0.0.7",
     "vuepress-plugin-copyright": "^1.0.2",
@@ -59,7 +57,6 @@
     "i18n": "0.15.1",
     "lodash": "4.17.21",
     "moment": "2.29.4",
-    "proj4": "^2.9.0",
     "vuepress": "1.9.7",
     "vuex": "3.1.0",
     "web-elementui": "1.1.6"

@@ -9,21 +9,19 @@ module.exports = {
   base: "/web-openlayers/", // 部署站点的基础路径
   port: 3009,
   head: [
-    ["script", { src: "/dll/vendor.dll.js" }],
-    ["script", { src: "/js/key.js" }],
-    ["script", { src: "/js/elm-pep.js" }],
-    ["script", { src: "/js/minified.js" }],
-    ["script", { src: "/js/gifler.min.js" }],
-    ["script", { src: "/js/ol.js" }],
-    ["script", { src: "/js/d3.min.js" }],
-    ["script", { src: "/js/mapbox-streets-v6-style.js" }],
-    ["script", { src: "/js/jszip.min.js" }],
-    ["script", { src: "/js/gyronorm.complete.min.js" }],
-    ["script", { src: "/js/arc.js" }],
-    ["script", { src: "/js/geojson-vt-dev.js" }],
-    ["script", { src: "/js/mapbox-gl.js" }],
-    ["script", { src: "/js/chroma.min.js" }],
-    ["script", { src: "/js/chaikin-smooth.js" }],
+    // ["script", { src: "/dll/vendor.dll.js" }],
+    // ["script", { src: "/js/elm-pep.js" }],
+    // ["script", { src: "/js/minified.js" }],
+    // ["script", { src: "/js/gifler.min.js" }],
+    // ["script", { src: "/js/d3.min.js" }],
+    // ["script", { src: "/js/mapbox-streets-v6-style.js" }],
+    // ["script", { src: "/js/jszip.min.js" }],
+    // ["script", { src: "/js/gyronorm.complete.min.js" }],
+    // ["script", { src: "/js/arc.js" }],
+    // ["script", { src: "/js/geojson-vt-dev.js" }],
+    // ["script", { src: "/js/mapbox-gl.js" }],
+    // ["script", { src: "/js/chroma.min.js" }],
+    // ["script", { src: "/js/chaikin-smooth.js" }],
   ],
   define: {
     env: {
@@ -76,7 +74,6 @@ module.exports = {
       name: "[name]_[hash]",
       context: process.cwd(),
     }),
-    [require("./demo-preview")],
     [
       "vuepress-plugin-anchor-toc",
       {
