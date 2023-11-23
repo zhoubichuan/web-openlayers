@@ -1,0 +1,152 @@
+<template>
+  <div>
+    <div ref="map" class="map"></div>
+    <br />
+    <div>
+      <a id="download" download></a>
+      <button id="download-kmz">Download sample</button>
+    </div>
+    <br />
+    <div id="info">&nbsp;</div>
+  </div>
+</template>
+
+<script>
+export default {
+  mounted() {
+    let {
+      format: { GPX, GeoJSON, IGC, KML, TopoJSON },
+      Map,
+      View,
+      layer: { Tile: TileLayer, Vector: VectorLayer },
+      source: { OSM, Vector: VectorSource },
+      interaction: { DragAndDrop, defaults: defaultInteractions },
+    } = ol;
+    const zip = new JSZip();
+    function getKMLData(buffer) {
+      let kmlData;
+      zip.load(buffer);
+      const kmlFile = zip.file(/.kml$/i)[0];
+      if (kmlFile) {
+        kmlData = kmlFile.asText();
+      }
+      return kmlData;
+    }
+    function getKMLImage(href) {
+      let url = href;
+      let path = window.location.href;
+      path = path.slice(0, path.lastIndexOf("/") + 1);
+      if (href.indexOf(path) === 0) {
+        const regexp = new RegExp(href.replace(path, "") + "$", "i");
+        const kmlFile = zip.file(regexp)[0];
+        if (kmlFile) {
+          url = URL.createObjectURL(new Blob([kmlFile.asArrayBuffer()]));
+        }
+      }
+      return url;
+    }
+    class KMZ extends KML {
+      constructor(opt_options) {
+        const options = opt_options || {};
+        options.iconUrlFunction = getKMLImage;
+        super(options);
+      }
+      getType() {
+        return "arraybuffer";
+      }
+      readFeature(source, options) {
+        const kmlData = getKMLData(source);
+        return super.readFeature(kmlData, options);
+      }
+      readFeatures(source, options) {
+        const kmlData = getKMLData(source);
+        return super.readFeatures(kmlData, options);
+      }
+    }
+    const dragAndDropInteraction = new DragAndDrop({
+      formatConstructors: [KMZ, GPX, GeoJSON, IGC, KML, TopoJSON],
+    });
+
+    const map = new Map({
+      interactions: defaultInteractions().extend([dragAndDropInteraction]),
+      layers: [
+        new TileLayer({
+          source: new OSM(),
+        }),
+      ],
+      target: this.$refs.map,
+      view: new View({
+        center: [12579156, 3274244],
+        zoom: 2,
+      }),
+    });
+    dragAndDropInteraction.on("addfeatures", function (event) {
+      const vectorSource = new VectorSource({
+        features: event.features,
+      });
+      map.addLayer(
+        new VectorLayer({
+          source: vectorSource,
+        })
+      );
+      map.getView().fit(vectorSource.getExtent());
+    });
+    const displayFeatureInfo = function (pixel) {
+      const features = [];
+      map.forEachFeatureAtPixel(pixel, function (feature) {
+        features.push(feature);
+      });
+      if (features.length > 0) {
+        const info = [];
+        let i, ii;
+        for (i = 0, ii = features.length; i < ii; ++i) {
+          const description =
+            features[i].get("description") ||
+            features[i].get("name") ||
+            features[i].get("_name") ||
+            features[i].get("layer");
+          if (description) {
+            info.push(description);
+          }
+        }
+        document.getElementById("info").innerHTML =
+          info.join("<br/>") || "&nbsp";
+      } else {
+        document.getElementById("info").innerHTML = "&nbsp;";
+      }
+    };
+    map.on("pointermove", function (evt) {
+      if (evt.dragging) {
+        return;
+      }
+      const pixel = map.getEventPixel(evt.originalEvent);
+      displayFeatureInfo(pixel);
+    });
+    map.on("click", function (evt) {
+      displayFeatureInfo(evt.pixel);
+    });
+    const link = document.getElementById("download");
+    function download(fullpath, filename) {
+      fetch(fullpath)
+        .then(function (response) {
+          return response.blob();
+        })
+        .then(function (blob) {
+          if (navigator.msSaveBlob) {
+            navigator.msSaveBlob(blob, filename);
+          } else {
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            link.click();
+          }
+        });
+    }
+    document.getElementById("download-kmz").addEventListener(
+      "click",
+      function () {
+        download(this.$withBase("/data/kmz/iceland.kmz"), "iceland.kmz");
+      }.bind(this)
+    );
+  },
+};
+</script>
