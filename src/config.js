@@ -4,7 +4,6 @@ import axios from "axios";
 import service from "@/util/request.js";
 import moment from "moment";
 import * as turf from '@turf/turf'
-import proj4 from "proj4"
 // const jsts = require("jsts/dist/jsts.min.js");
 
 export default {
@@ -14,7 +13,6 @@ export default {
     // window._ = _
     // window.$env = process.env
     // Vue.prototype.$SliderRight = SliderRight
-    Vue.prototype.$proj4 = proj4;
     Vue.prototype.$turf = turf;
     // Vue.prototype.$jsts = jsts;
     Vue.prototype.$service = service;

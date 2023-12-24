@@ -11,7 +11,7 @@ export default {
     // 获取轨迹点
     let res = await this.$axios({
       type: "get",
-      url: this.$withBase("/data/1.json"),
+      url: "../data/1.json",
     });
     let points = res.data.map((i) =>
       ol.proj.transform(i, "EPSG:4326", "EPSG:3857")

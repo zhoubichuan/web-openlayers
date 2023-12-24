@@ -15,7 +15,7 @@ export default {
   async mounted() {
     let chinaLayer = new VectorLayer({
       source: new VectorSource({
-        url: this.$withBase("/data/topojson/province.json"),
+        url: "../data/topojson/province.json",
         format: new TopoJSON(),
       }),
       style: new Style({
@@ -71,7 +71,7 @@ export default {
     }
     let res = await this.$axios({
       type: "get",
-      url: this.$withBase("/data/topojson/province.json"),
+      url: "../data/topojson/province.json",
     });
     var features = new ol.format.TopoJSON({
       featureProjection: "EPSG:3857",

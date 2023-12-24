@@ -9,11 +9,12 @@ module.exports = {
   base: "/web-openlayers/", // 部署站点的基础路径
   port: 3009,
   head: [
-    // ["script", { src: "/dll/vendor.dll.js" }],
+    ["script", { src: "/dll/vendor.dll.js" }],
     // ["script", { src: "/js/elm-pep.js" }],
     // ["script", { src: "/js/minified.js" }],
     // ["script", { src: "/js/gifler.min.js" }],
     // ["script", { src: "/js/d3.min.js" }],
+    ["script", { src: "/js/ol.js" }],
     // ["script", { src: "/js/mapbox-streets-v6-style.js" }],
     // ["script", { src: "/js/jszip.min.js" }],
     // ["script", { src: "/js/gyronorm.complete.min.js" }],
