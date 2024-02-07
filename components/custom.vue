@@ -1,19 +1,8 @@
 <template>
-  <div ref="map" class="map" ></div>
+  <div ref="map" class="map"></div>
 </template>
   
   <script>
-let {
-  Map,
-  View,
-  Feature,
-  style: { Style, Stroke, Fill },
-  layer: { Vector: VectorLayer, Tile: TileLayer },
-  geom: { Polygon, MultiPolygon },
-  source: { XYZ, Vector: VectorSource },
-  proj: { fromLonLat },
-  control: { OverviewMap, defaults },
-} = ol;
 import chinaJSON from "./data/100000_full.json";
 export default {
   name: "WebOLChina",
@@ -24,6 +13,17 @@ export default {
     };
   },
   async mounted() {
+    let {
+      Map,
+      View,
+      Feature,
+      style: { Style, Stroke, Fill },
+      layer: { Vector: VectorLayer, Tile: TileLayer },
+      geom: { Polygon, MultiPolygon },
+      source: { XYZ, Vector: VectorSource },
+      proj: { fromLonLat },
+      control: { OverviewMap, defaults },
+    } = ol;
     let map = new Map({
       target: this.$refs.map,
       controls: defaults({

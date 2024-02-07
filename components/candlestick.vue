@@ -6,18 +6,6 @@
 </template>
   
 <script>
-let {
-  Map,
-  View,
-  Feature,
-  style: { Style, Stroke, Fill },
-  layer: { Vector: VectorLayer, Tile: TileLayer },
-  geom: { Polygon, MultiPolygon },
-  source: { XYZ, Vector: VectorSource },
-  proj: { fromLonLat },
-  control: { OverviewMap, defaults },
-  has,
-} = ol;
 import china from "./data/100000_full.json";
 import province from "./data/topojson/province.json";
 import world from "./data/topojson/world-110m.json";
@@ -58,6 +46,18 @@ export default {
     },
   },
   async mounted() {
+    let {
+      Map,
+      View,
+      Feature,
+      style: { Style, Stroke, Fill },
+      layer: { Vector: VectorLayer, Tile: TileLayer },
+      geom: { Polygon, MultiPolygon },
+      source: { XYZ, Vector: VectorSource },
+      proj: { fromLonLat },
+      control: { OverviewMap, defaults },
+      has,
+    } = ol;
     map = new Map({
       target: this.$refs.map,
       controls: defaults({
