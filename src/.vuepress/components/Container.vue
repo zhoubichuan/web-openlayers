@@ -6,7 +6,7 @@
         <slot>
           <iframe
             ref="iframe"
-            :src="url"
+            :src="getUrl"
             width="100%"
             height="520"
             frameborder="no"
@@ -35,6 +35,14 @@ export default {
     return {
       show: false,
     };
+  },
+  computed: {
+    getUrl() {
+      if (location.href.includes("localhost:3009")) {
+        return "http://localhost:8090" + this.url;
+      }
+      return this.url;
+    },
   },
   methods: {
     handleScroll() {
