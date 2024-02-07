@@ -1,26 +1,59 @@
 <template>
-  <div>
-    <div ref="map" class="map"></div>
-    <button ref="rotateleft" title="Rotate clockwise">↻</button>
-    <button ref="rotateright" title="Rotate counterclockwise">↺</button>
-    <button ref="pantolondon">平移到伦敦</button>
-    <button ref="elastictomoscow">弹跳到莫斯科</button>
-    <button ref="bouncetoistanbul">跳到伊斯坦布尔</button>
-    <button ref="spintorome">旋转到罗马</button>
-    <button ref="flytobern">飞往伯尔尼</button>
-    <button ref="rotatearoundrome">绕罗马旋转</button>
-    <button ref="tour">Take a tour</button>
+  <div class="map">
+    <div style="margin-left:100px;position:absolute;z-index: 100;">
+      <button ref="rotateleft" title="Rotate clockwise">↻</button>
+      <button ref="rotateright" title="Rotate counterclockwise">↺</button>
+      <button ref="pantolondon">平移到伦敦</button>
+      <button ref="elastictomoscow">弹跳到莫斯科</button>
+      <button ref="bouncetoistanbul">跳到伊斯坦布尔</button>
+      <button ref="spintorome">旋转到罗马</button>
+      <button ref="flytobern">飞往伯尔尼</button>
+      <button ref="rotatearoundrome">绕罗马旋转</button>
+      <button ref="tour">Take a tour</button>
+    </div>
+    <WebOpenlayers2  :layer="layer" :view="view" @mapView="mapView"></WebOpenlayers2>
   </div>
 </template>
-  
-  <script>
+
+<script>
+let viewInstance;
+let urls = [
+  // "http://t0.tianditu.com/DataServer?T=vec_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
+  // "http://t0.tianditu.com/DataServer?T=cva_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
+  "http://t0.tianditu.com/DataServer?T=img_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
+  // "http://t0.tianditu.com/DataServer?T=cia_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
+  // "http://t0.tianditu.com/DataServer?T=ter_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
+  // "http://t0.tianditu.com/DataServer?T=cta_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
+];
 export default {
+  data() {
+    return {
+      layer: urls.map((item) => ({
+        name: "Tile",
+        source: {
+          name: "XYZ",
+          config(config) {
+            return ({
+              url: item,
+              wrapX: false,
+              ...config,
+            });
+          },
+        },
+      })),
+      view: {
+        center: [12579156, 3274244],
+        zoom: 8,
+      },
+    };
+  },
+  methods: {
+    mapView(view) {
+      viewInstance = view;
+    },
+  },
   mounted() {
     let {
-      Map,
-      View,
-      layer: { Tile: TileLayer },
-      source: { OSM },
       easing: { easeIn, easeOut },
       proj: { fromLonLat },
     } = ol;
@@ -29,20 +62,6 @@ export default {
     const istanbul = fromLonLat([28.9744, 41.0128]);
     const rome = fromLonLat([12.5, 41.9]);
     const bern = fromLonLat([7.4458, 46.95]);
-    const view = new View({
-      center: istanbul,
-      zoom: 6,
-    });
-    const map = new Map({
-      target: this.$refs.map,
-      layers: [
-        new TileLayer({
-          preload: 4,
-          source: new OSM(),
-        }),
-      ],
-      view: view,
-    });
     function bounce(t) {
       const s = 7.5625;
       const p = 2.75;
@@ -75,18 +94,18 @@ export default {
       that.$refs[id].addEventListener("click", callback);
     }
     onClick("rotateleft", function () {
-      view.animate({
-        rotation: view.getRotation() + Math.PI / 2,
+      viewInstance.animate({
+        rotation: viewInstance.getRotation() + Math.PI / 2,
       });
     });
     onClick("rotateright", function () {
-      view.animate({
-        rotation: view.getRotation() - Math.PI / 2,
+      viewInstance.animate({
+        rotation: viewInstance.getRotation() - Math.PI / 2,
       });
     });
     onClick("rotatearoundrome", function () {
-      const rotation = view.getRotation();
-      view.animate(
+      const rotation = viewInstance.getRotation();
+      viewInstance.animate(
         {
           rotation: rotation + Math.PI,
           anchor: rome,
@@ -100,28 +119,28 @@ export default {
       );
     });
     onClick("pantolondon", function () {
-      view.animate({
+      viewInstance.animate({
         center: london,
         duration: 2000,
       });
     });
     onClick("elastictomoscow", function () {
-      view.animate({
+      viewInstance.animate({
         center: moscow,
         duration: 2000,
         easing: elastic,
       });
     });
     onClick("bouncetoistanbul", function () {
-      view.animate({
+      viewInstance.animate({
         center: istanbul,
         duration: 2000,
         easing: bounce,
       });
     });
     onClick("spintorome", function () {
-      const center = view.getCenter();
-      view.animate(
+      const center = viewInstance.getCenter();
+      viewInstance.animate(
         {
           center: [
             center[0] + (rome[0] - center[0]) / 2,
@@ -139,7 +158,7 @@ export default {
     });
     function flyTo(location, done) {
       const duration = 2000;
-      const zoom = view.getZoom();
+      const zoom = viewInstance.getZoom();
       let parts = 2;
       let called = false;
       function callback(complete) {
@@ -152,14 +171,14 @@ export default {
           done(complete);
         }
       }
-      view.animate(
+      viewInstance.animate(
         {
           center: location,
           duration: duration,
         },
         callback
       );
-      view.animate(
+      viewInstance.animate(
         {
           zoom: zoom - 1,
           duration: duration / 2,

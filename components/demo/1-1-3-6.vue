@@ -31,7 +31,7 @@ export default {
             "EPSG:3857"
           );
         },
-        zoom: 12,
+        zoom: 7,
       },
     };
   },

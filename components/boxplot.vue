@@ -3,8 +3,14 @@
 </template>
 
 <script>
+let { Map, View, extent, proj, tilegrid, layer, source } = ol;
 let urls = [
-  "http://t0.tianditu.com/DataServer?T=cta_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
+  "http://t0.tianditu.com/DataServer?T=vec_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
+  // "http://t0.tianditu.com/DataServer?T=cva_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
+  // "http://t0.tianditu.com/DataServer?T=img_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
+  // "http://t0.tianditu.com/DataServer?T=cia_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
+  // "http://t0.tianditu.com/DataServer?T=ter_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
+  // "http://t0.tianditu.com/DataServer?T=cta_w&x={x}&y={y}&l={z}&tk=d97ee4980a986e7d0c4f0a8c8f103a94",
 ];
 let mapInstance;
 export default {
@@ -29,7 +35,7 @@ export default {
             config() {
               return {
                 url: item,
-                wrapX: false,
+                crossOrigin: "anonymous",
               };
             },
           },
@@ -37,7 +43,6 @@ export default {
     },
   },
   mounted() {
-    let { Map, View, extent, proj, tilegrid, layer, source } = ol;
     const projection = proj.get("EPSG:900913");
     const projectionExtent = projection.getExtent();
     const size = extent.getWidth(projectionExtent) / 256;
@@ -52,24 +57,31 @@ export default {
       resolutions: resolutions,
       matrixIds: matrixIds,
     });
-    mapInstance = new Map({
-      target: this.$refs.map,
-      layers: this.layer.map(
-        (i) =>
-          new layer[i.name]({
-            source: new source[i.source.name](
-              i.source.config && i.source.config({ projection, tileGrid })
-            ),
-          })
-      ),
-      view: new View({
-        ...this.view,
-        center:
-          typeof this.view === "function"
-            ? this.view.center(proj)
-            : this.view.center,
-      }),
+    let target = this.$refs.map;
+    this.$emit("mapTarget", target);
+    let layers = this.layer.map(
+      (i) =>
+        new layer[i.name]({
+          source: new source[i.source.name](
+            i.source.config && i.source.config({ projection, tileGrid })
+          ),
+        })
+    );
+    this.$emit("mapLayers", layers);
+    let view = new View({
+      ...this.view,
+      center:
+        typeof this.view.center === "function"
+          ? this.view.center(proj)
+          : this.view.center,
     });
+    this.$emit("mapView", view);
+    mapInstance = new Map({
+      target,
+      layers,
+      view,
+    });
+    this.$emit("mapMounted", mapInstance);
   },
   methods: {
     mapMounted() {
@@ -81,10 +93,10 @@ export default {
   },
 };
 </script>
-<!-- <style scoped>
+<style scoped>
 .map {
   width: 100%;
   height: 100%;
 }
-</style> -->
+</style>
 

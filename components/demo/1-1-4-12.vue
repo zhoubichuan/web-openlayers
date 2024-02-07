@@ -1,4 +1,24 @@
 <template>
+  <WebOpenlayers2 :view="view"></WebOpenlayers2>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      view: {
+        center: [12579156, 3274244],
+        zoom: 2,
+        extent: [-13882269, 2890586, -7456136, 6340207],
+        showFullExtent: true,
+      },
+    };
+  },
+};
+</script>
+
+<!-- 
+<template>
     <div ref="map" class="map"></div>
   </template>
   
@@ -73,4 +93,4 @@
       map.addLayer(vectorLayer)
     },
   }
-  </script>
+  </script> -->

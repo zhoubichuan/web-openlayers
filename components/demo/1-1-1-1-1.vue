@@ -34,9 +34,11 @@ export default {
     this.$refs.teleport.addEventListener(
       "click",
       function () {
-        const target = map.getTarget().className.includes('map1') ? this.$refs.map2 : this.$refs.map1;
+        const target = map.getTarget().className.includes("map1")
+          ? this.$refs.map2
+          : this.$refs.map1;
         map.setTarget(target);
-      },
+      }.bind(this),
       false
     );
   },

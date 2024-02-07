@@ -8,7 +8,7 @@ export default {
     return {
       view: {
         center: [12579156, 3274244],
-        zoom: 4,
+        zoom: 12,
       },
     };
   },

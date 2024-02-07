@@ -26,7 +26,7 @@ export default {
       style: { Circle: CircleStyle, Fill, Stroke, Style },
     } = ol;
     const source = new VectorSource({
-      url: this.$withBase("/data/geojson/switzerland.geojson"),
+      url: "./data/geojson/switzerland.geojson",
       format: new GeoJSON(),
     });
     const style = new Style({
