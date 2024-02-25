@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     getUrl() {
-      if (location.href.includes("localhost:3009")) {
+      if (location.href.includes("localhost:3010")) {
         return "http://localhost:8090" + this.url;
       }
       return this.url;
