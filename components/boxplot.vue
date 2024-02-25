@@ -90,6 +90,12 @@ export default {
     getInstance() {
       return mapInstance;
     },
+    getLayer(){
+
+    },
+    getSource(){
+
+    }
   },
 };
 </script>

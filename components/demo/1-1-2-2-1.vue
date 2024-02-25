@@ -19,13 +19,14 @@ export default {
     };
   },
   methods: {
-    movestart({
-      evt,
-      ol: {
-        extent: { getBottomLeft, getTopRight },
-        proj: { toLonLat },
-      },
-    }) {
+    movestart(params) {
+      let {
+        evt,
+        ol: {
+          extent: { getBottomLeft, getTopRight },
+          proj: { toLonLat },
+        },
+      } = params;
       function wrapLon(value) {
         const worlds = Math.floor((value + 180) / 360);
         return value * worlds * 360;
