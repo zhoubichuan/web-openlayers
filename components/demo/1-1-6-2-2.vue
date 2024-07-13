@@ -5,7 +5,7 @@
       <h5>单击下面的层节点以更改其属性</h5>
       <ul>
         <li>
-          <span>OSM 图层</span>
+          <span>XYZ 图层</span>
           <fieldset id="layer0">
             <label class="checkbox" for="visible0">
               visible <input id="visible0" class="visible" type="checkbox" />
@@ -80,14 +80,17 @@ export default {
       Map,
       View,
       layer: { Tile: TileLayer, Group: LayerGroup },
-      source: { OSM, TileJSON },
+      source: { XYZ, TileJSON },
       proj: { fromLonLat },
     } = ol;
 
     const map = new Map({
       layers: [
         new TileLayer({
-          source: new OSM(),
+          source: new XYZ({
+            url: `http://wprd0{1-4}.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&lang=zh_cn&size=1&scl=1&style=6`,
+            crossOrigin: "anonymous", //跨域
+          })
         }),
         new LayerGroup({
           layers: [

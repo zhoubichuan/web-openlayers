@@ -9,7 +9,7 @@ export default {
       Map,
       View,
       layer: { Tile: TileLayer },
-      source: { OSM },
+      source: { XYZ },
       control: { Control, defaults: defaultControls },
     } = ol
     class RotateNorthControl extends Control {
@@ -38,7 +38,10 @@ export default {
       controls: defaultControls().extend([new RotateNorthControl()]),
       layers: [
         new TileLayer({
-          source: new OSM(),
+          source: new XYZ({
+            url: `http://wprd0{1-4}.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&lang=zh_cn&size=1&scl=1&style=6`,
+            crossOrigin: "anonymous", //跨域
+          })
         }),
       ],
       target: this.$refs.map,
