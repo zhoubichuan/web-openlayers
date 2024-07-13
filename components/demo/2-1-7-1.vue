@@ -20,14 +20,17 @@ export default {
       Map,
       View,
       layer: { Tile: TileLayer, Vector: VectorLayer },
-      source: { OSM, Vector: VectorSource },
+      source: { XYZ, Vector: VectorSource },
       style: { Circle: CircleStyle, Fill, Stroke, Style },
       interaction: { Draw, Modify, Snap },
       proj: { get },
     } = ol;
     const raster = new TileLayer({
-      source: new OSM(),
-    });
+      source: new XYZ({
+        url: `http://wprd0{1-4}.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&lang=zh_cn&size=1&scl=1&style=6`,
+        crossOrigin: "anonymous", //跨域
+      })
+    })
     const source = new VectorSource();
     const vector = new VectorLayer({
       source: source,
